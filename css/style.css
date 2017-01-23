@@ -1,3 +1,4 @@
+
 body {
   width : 800px;
   margin-left : auto;
@@ -27,9 +28,9 @@ nav ul li a:link, nav ul li a:visited{
     /*border-bottom:none;*/
     text-decoration: none;
 }
-nav ul li.selected{
-  background-color: #0D0D0D;
-  color:white;
+.selected {
+
+  color: pink !important;
 }
 .topRight{
   float: right;
