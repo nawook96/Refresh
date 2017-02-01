@@ -28,8 +28,9 @@
       </ul>
     </div>
   </aside>
-  <article>
+  <article  class="boardArticle">
   <h1>자유게시판</h1>
+  	<div id="boardList">
   <table>
     <caption class="readHide">자유게시판</caption>
     <thead>
@@ -42,7 +43,7 @@
     </thead>
     <tbody>
         <?php
-          $sql = 'select * from board_free order by b_no desc';
+          $sql = 'select * from board_db order by b_no desc';
           $result = $db->query($sql);
           while($row = $result->fetch_assoc())
           {
@@ -65,6 +66,10 @@
         ?>
     </tbody>
   </table>
+  <div class="btnSet">
+      <a href="./write.php" class="btnWrite btn">글쓰기</a>
+    </div>
+  </div>
   </article>
 </div>
 <?php include("frame/footer.php")?>
