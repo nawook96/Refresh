@@ -1,14 +1,15 @@
 <!DOCTYPE html>
+
 <html>
 <head>
   <meta charset = "utf-8">
   <title> 블로그 홈페이지 </title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-<? include("frame/header.php")?>
-<? include("frame/navbar.php")?>
+<?php include("frame/header.php");?>
+<?php include("frame/navbar.php");?>
 <div id = "allcontent">
   <aside>
     <div id="profileBox">
@@ -28,6 +29,6 @@
     여기는 텍스트입니다.
   </article>
 </div>
-<?include("frame/footer.php")?>
+<?php include("frame/footer.php");?>
 </body>
 </html>
