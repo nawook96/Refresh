@@ -70,7 +70,7 @@
     </tbody>
   </table>
   <div class="btnSet">
-      <a href="./write.php" class="btnWrite btn">글쓰기</a>
+      <a href="./board_write.php" class="btnWrite btn">글쓰기</a>
     </div>
   </div>
   </article>
