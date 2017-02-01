@@ -1,3 +1,7 @@
+<?php
+	require_once("dbconfig.php");
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,8 +11,8 @@
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-<? include("frame/header.php")?>
-<? include("frame/navbar.php")?>
+<?php include("frame/header.php")?>
+<?php include("frame/navbar.php")?>
 <div id = "allcontent">
   <aside>
     <div id="profileBox">
@@ -25,9 +29,44 @@
     </div>
   </aside>
   <article>
-    여기는 텍스트입니다.
+  <h1>자유게시판</h1>
+  <table>
+    <caption class="readHide">자유게시판</caption>
+    <thead>
+      <tr>
+        <th scope="col" class="no">번호</th>
+        <th scope="col" class="title">제목</th>
+        <th scope="col" class="date">작성일</th>
+        <th scope="col" class="hit">조회</th>
+      </tr>
+    </thead>
+    <tbody>
+        <?php
+          $sql = 'select * from board_free order by b_no desc';
+          $result = $db->query($sql);
+          while($row = $result->fetch_assoc())
+          {
+            $datetime = explode(' ', $row['b_date']);
+            $date = $datetime[0];
+            $time = $datetime[1];
+            if($date == Date('Y-m-d'))
+              $row['b_date'] = $time;
+            else
+              $row['b_date'] = $date;
+        ?>
+      <tr>
+        <td class="no"><?php echo $row['b_no']?></td>
+        <td class="title"><?php echo $row['b_title']?></td>
+        <td class="date"><?php echo $row['b_date']?></td>
+        <td class="hit"><?php echo $row['b_hit']?></td>
+      </tr>
+        <?php
+          }
+        ?>
+    </tbody>
+  </table>
   </article>
 </div>
-<?include("frame/footer.php")?>
+<?php include("frame/footer.php")?>
 </body>
 </html>
