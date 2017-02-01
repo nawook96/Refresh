@@ -1,0 +1,24 @@
+table{
+  table-layout : fixed;
+  width : 780px;
+  margin : 10px;
+  padding:2px;
+  border : thin solid gray;
+  background-color: white;
+}
+
+td, th{
+  padding : 10px;
+  border : thin dotted gray;
+}
+
+table, td, th{
+  border-spacing: 2px;
+  border-collapse: collapse;
+}
+
+.cellcolor{
+  background-color: #999999;
+  font: white;
+  margin:10px;
+}
