@@ -15,7 +15,7 @@
  $sql = "SELECT m_id FROM member WHERE m_id = '$id' AND m_pw = '$password'";
  $result = mysqli_query($conn, $sql);
 
- $count = mysql_num_rows($result);
+ $count = mysqli_num_rows($result);
 
  if(count == 1)
  {
@@ -26,7 +26,7 @@
  else
  {
    echo "<script>alert('아이디나 비밀번호를 확인해 주세요.');</script>";
-   echo "<script>location.href = 'login.php'</script>";
+   //echo "<script>location.href = 'login.php'</script>";
  }
 
 ?>

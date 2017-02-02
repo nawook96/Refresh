@@ -17,11 +17,11 @@ function doLogIn() {
 
  console.log("doSubmit");
 
- if(blankcheck(joinfrm.m_id,'아이디') || joinfrm.id_ch.value == false) {
+ if(blankcheck(joinfrm.m_id,'아이디')) {
   return;
  }
 
- if(blankcheck(joinfrm.m_pass,'비밀번호') || joinfrm.pass_ch.value == false) {
+ if(blankcheck(joinfrm.m_pass,'비밀번호')) {
   return;
  }
  joinfrm.submit();

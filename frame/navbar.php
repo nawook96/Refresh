@@ -9,7 +9,7 @@
      Sign Up </a> </li>
 
   <li>
-    <a class = "topRight" href="Login.php">
+    <a class = "topRight" href="login.php">
     <i class="fa fa-sign-in" aria-hidden="true"></i>
      Login </a> </li>
 </ul>
