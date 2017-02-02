@@ -40,6 +40,7 @@ if(isset($_SESSION['logined_user']))
 
   </div>
   </div>
+  <?php include("frame/footer.php");?>
 </body>
-<?php include("frame/footer.php");?>
+
 </html>

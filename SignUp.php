@@ -80,6 +80,7 @@
   </form>
 
   </div>
+  <?php include("frame/footer.php");?>
 </body>
-<?php include("frame/footer.php");?>
+
 </html>
