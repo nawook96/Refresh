@@ -4,7 +4,7 @@
   <li> <a href="setting.php"> SETTING </a> </li>
 
   <li>
-    <a class = "topRight" href="Join.php">
+    <a class = "topRight" href="SignUp.php">
     <i class="fa fa-user-circle-o" aria-hidden="true"></i>
      Sign Up </a> </li>
 

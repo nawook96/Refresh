@@ -4,21 +4,21 @@
   <meta charset = "utf-8">
   <title> 블로그 홈페이지 </title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/signup.css">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script  type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript" src="js/signup.js"></script>
 </head>
 <body>
   <?php include("frame/header.php");?>
   <?php include("frame/navbar.php");?>
   <div id = "allcontent">
-    <form name="joinfrm" id="joinfrm" action="joinProc.do" method="post">
+    <form name="joinfrm" id="joinfrm" action="membersave.php" method="post">
   <input type="hidden" id="id_ch" name="id_ch" value="false"/>
   <input type="hidden" id="pass_ch" name="pass_ch" value="false"/>
   <input type="hidden" id="email_ch" name="email_ch" value="false"/>
   <input type="hidden" id="m_tel" name="m_tel" value=""/>
   <div class ="wrapper_table">
-   <div class="join_header">
-    <p>회원 가입</p>
-   </div>
    <div class="join_body">
     <dl>
      <div>
@@ -50,8 +50,8 @@
        </div>
      <dt><label>Name</label></dt>
      <dd><input id="m_name" name="m_name" type="text" size = "30" maxlength="10" placeholder="이름"></dd>
-     <dt><label>Birth Date</label></dt>
-     <dd><input id="m_date" name="m_date" type="date" min="1930-01-01" max='2010-12-31'></dd>
+     <dt><label>Birth Year</label></dt>
+     <dd><input id="m_year" name="m_year" type="text" size = "30" maxlength="4" placeholder="년(4자)"></dd>
      <dt><label>Phone Number</label></dt>
      <dd class = "tel"><select id = "m_tel1" name ="tel1"><option selected>010</option>
       <option>011</option>
@@ -74,12 +74,12 @@
     </dl>
    </div>
    <div class="join_footer">
-    <input type="button" value="가입" onclick="doSubmit()">
+    <input type="button" value="JOIN" onclick="doSubmit()">
    </div>
   </div>
   </form>
 
   </div>
-  <?php include("frame/footer.php");?>
 </body>
+<?php include("frame/footer.php");?>
 </html>
