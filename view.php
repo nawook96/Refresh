@@ -2,8 +2,9 @@
 	require_once("dbconfig.php");
 	$bno = $_GET['bno'];
 
-		if(!empty($bNo) && empty($_COOKIE['board_db_' . $bNo])) {
-			$sql = 'update board_db set b_hit = b_hit + 1 where b_no = ' . $bNo;
+		if(!empty($bno) && empty($_COOKIE['board_db_' . $bno])) {
+
+			$sql = 'update board_db set b_hit = b_hit + 1 where b_no = ' . $bno;
 			$result = $db->query($sql);
 			if(empty($result)) {
 				?>
@@ -13,7 +14,7 @@
 				</script>
 				<?php
 			} else {
-				// setcookie('board_db_' . $bNo, TRUE, time() + (60 * 60 * 24), '/');
+				setcookie('board_db_' . $bno, TRUE, time() + (60 * 60 * 24), '/');
 			}
 		}
 

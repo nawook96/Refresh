@@ -3,7 +3,7 @@
 
 	//$_GET['bno']이 있어야만 글삭제가 가능함.
 	if(isset($_GET['bno'])) {
-		$bNo = $_GET['bno'];
+		$bno = $_GET['bno'];
 	}
 ?>
 <!DOCTYPE html>
@@ -22,8 +22,8 @@
 	<article class="boardArticle">
 		<h3>자유게시판 글삭제</h3>
 		<?php
-			if(isset($bNo)) {
-				$sql = 'select count(b_no) as cnt from board_db where b_no = ' . $bNo;
+			if(isset($bno)) {
+				$sql = 'select count(b_no) as cnt from board_db where b_no = ' . $bno;
 				$result = $db->query($sql);
 				$row = $result->fetch_assoc();
 				if(empty($row['cnt'])) {
@@ -37,13 +37,13 @@
 			exit;
 				}
 
-				$sql = 'select b_title from board_db where b_no = ' . $bNo;
+				$sql = 'select b_title from board_db where b_no = ' . $bno;
 				$result = $db->query($sql);
 				$row = $result->fetch_assoc();
 		?>
 		<div id="boardDelete">
 			<form action="./delete_update.php" method="post">
-				<input type="hidden" name="bno" value="<?php echo $bNo?>">
+				<input type="hidden" name="bno" value="<?php echo $bno?>">
 				<table>
 					<thead>
 						<tr>

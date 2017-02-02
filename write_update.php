@@ -3,11 +3,11 @@
 
 	//$_POST['bno']이 있을 때만 $bno 선언
 		if(isset($_POST['bno'])) {
-			$bNo = $_POST['bno'];
+			$bno = $_POST['bno'];
 		}
 
 		//bno이 없다면(글 쓰기라면) 변수 선언
-	if(empty($bNo)) {
+	if(empty($bno)) {
 		$date = date('Y-m-d H:i:s');
 	}
 	//항상 변수 선언
@@ -16,9 +16,9 @@
 
 
 	//글 수정
-	if(isset($bNo)) {
+	if(isset($bno)) {
 
-			$sql = 'update board_db set b_title="' . $bTitle . '", b_content="' . $bContent . '" where b_no = ' . $bNo;
+			$sql = 'update board_db set b_title="' . $bTitle . '", b_content="' . $bContent . '" where b_no = ' . $bno;
 			$msgState = '수정';
 		}
 
@@ -38,10 +38,10 @@
 		if($result) {
 
 			$msg = '정상적으로 글이 ' . $msgState . '되었습니다.';
-			if(empty($bNo)) {
-				$bNo = $db->insert_id;
+			if(empty($bno)) {
+				$bno = $db->insert_id;
 			}
-			$replaceURL = './view.php?bno=' . $bNo;
+			$replaceURL = './view.php?bno=' . $bno;
 		} else {
 			$msg = '글을 ' . $msgState . '하지 못했습니다.';
 	?>

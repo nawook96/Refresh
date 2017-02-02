@@ -3,11 +3,11 @@
 
 	//$_GET['bno']이 있을 때만 $bno 선언
 	if(isset($_GET['bno'])) {
-		$bNo = $_GET['bno'];
+		$bno = $_GET['bno'];
 	}
 
-	if(isset($bNo)) {
-		$sql = 'select b_title, b_content from board_db where b_no = ' . $bNo;
+	if(isset($bno)) {
+		$sql = 'select b_title, b_content from board_db where b_no = ' . $bno;
 		$result = $db->query($sql);
 		$row = $result->fetch_assoc();
 	}
@@ -36,8 +36,8 @@
 </p>
   <form action="./write_update.php" method=post>
     <?php
-  				if(isset($bNo)) {
-  					echo '<input type="hidden" name="bno" value="' . $bNo . '">';
+  				if(isset($bno)) {
+  					echo '<input type="hidden" name="bno" value="' . $bno . '">';
   				}
   				?>
 
@@ -78,7 +78,7 @@
     <tr>
         <td colspan=10 align=center>
             <INPUT type=submit>
-              <?php echo isset($bNo)?'수정':'작성'?>
+              <?php echo isset($bno)?'수정':'작성'?>
             &nbsp;&nbsp;
             <INPUT type=reset value="다시 쓰기">
             &nbsp;&nbsp;
