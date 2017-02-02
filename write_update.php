@@ -47,7 +47,7 @@
 	?>
 			<script>
 				alert("<?php echo $msg?>");
-				history.back();
+				//history.back();
 			</script>
 	<?php
 			exit;
