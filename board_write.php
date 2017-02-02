@@ -59,9 +59,7 @@
     <tr>
         <td width=150px align=left >내용</td>
         <td align=left  width=578px nowrap>
-            <TEXTAREA style = "width:578px"name=bContent cols=90 rows=15>
-            <?php echo isset($row['b_content'])?$row['b_content']:null?>
-          </TEXTAREA>
+            <TEXTAREA style = "width:578px"name=bContent cols=90 rows=15><?php echo isset($row['b_content'])?$row['b_content']:null?></TEXTAREA>
         </td>
     </tr>
   <tr>
