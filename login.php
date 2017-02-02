@@ -1,3 +1,10 @@
+<?php
+if(isset($_SESSION['logined_user']))
+{
+  echo "<script>alert('이미 로그인 되어있습니다.');</script>";
+  echo "<script>location.href = 'index.php'</script>";
+}
+?>
 
 <html>
 <head>

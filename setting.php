@@ -1,3 +1,3 @@
 <?php
-include('memberlock.php');
+include('adminlock.php');
 ?>

@@ -5,7 +5,7 @@ if(!isset($_SESSION))
   session_start();
 }
 $id=$_SESSION['logined_user'];
-$sql = mysqli_query($db, "SELECT m_id FROM member WHERE m_id='$id'");
+$sql = mysqli_query($db, "SELECT m_id FROM member WHERE m_id='$id' AND isAdmin = 1");
 $row = mysqli_fetch_array($sql);
 $login_session = $row['m_id'];
 

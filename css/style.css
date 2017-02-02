@@ -23,7 +23,7 @@ nav ul li {
   padding: 5px 10px 5px 10px;
 
 }
-nav ul li a:link, nav ul li a:visited{
+nav ul li a:link, nav ul li a:visited, nav ul li a{
     color: #9D9D9D;
     /*border-bottom:none;*/
     text-decoration: none;

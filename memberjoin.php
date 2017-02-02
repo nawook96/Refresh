@@ -7,7 +7,10 @@
  $db_table = 'member'; // table name
  $conn = new mysqli($db_host, $db_user, $db_pw, $db_name);
 
- session_start();
+ if(!isset($_SESSION))
+ {
+   session_start();
+ }
 
  $id=$_POST['m_id'];
  $password=md5($_POST['m_pass']);
@@ -25,7 +28,7 @@
  else
  {
    echo "<script>alert('아이디나 비밀번호를 확인해 주세요.');</script>";
-   //echo "<script>location.href = 'login.php'</script>";
+   echo "<script>location.href = 'login.php'</script>";
  }
 
 ?>
