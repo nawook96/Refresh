@@ -1,3 +1,18 @@
+<?php
+	require_once("dbconfig.php");
+
+	//$_GET['bno']이 있을 때만 $bno 선언
+	if(isset($_GET['bno'])) {
+		$bNo = $_GET['bno'];
+	}
+
+	if(isset($bNo)) {
+		$sql = 'select b_title, b_content from board_db where b_no = ' . $bNo;
+		$result = $db->query($sql);
+		$row = $result->fetch_assoc();
+	}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,6 +35,12 @@
   </div>
 </p>
   <form action=write_update.php method=post>
+    <?php
+  				if(isset($bNo)) {
+  					echo '<input type="hidden" name="bno" value="' . $bNo . '">';
+  				}
+  				?>
+
   <table id="boardWrite">
       <tr>
         <td width=150px nowrap align=left >
@@ -31,13 +52,16 @@
         <td align=left width=588px nowrap>
             <input type=text name=bTitle style="width:580px" maxlength=35
             onfocus="if(this.value =='제목을 입력하세요') this.value='';"
-            onblur="if(this.value =='') this.value='제목을 입력하세요';" value="제목을 입력하세요">
+            onblur="if(this.value =='') this.value='제목을 입력하세요';"
+            value="<?php echo isset($row['b_title'])?$row['b_title']:'제목을 입력하세요'?>">
         </td>
     </tr>
     <tr>
         <td width=150px align=left >내용</td>
         <td align=left  width=578px nowrap>
-            <TEXTAREA style = "width:578px"name=bContent cols=90 rows=15></TEXTAREA>
+            <TEXTAREA style = "width:578px"name=bContent cols=90 rows=15>
+            <?php echo isset($row['b_content'])?$row['b_content']:null?>
+          </TEXTAREA>
         </td>
     </tr>
   <tr>
@@ -53,7 +77,8 @@
     </tr>
     <tr>
         <td colspan=10 align=center>
-            <INPUT type=submit value="글 저장하기">
+            <INPUT type=submit>
+              <?php echo isset($bNo)?'수정':'작성'?>
             &nbsp;&nbsp;
             <INPUT type=reset value="다시 쓰기">
             &nbsp;&nbsp;

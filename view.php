@@ -31,6 +31,11 @@
 			</div>
 			<div id="boardContent"><?php echo $row['b_content']?></div>
 		</div>
+		<div class="btnSet">
+			<a href="./board_write.php?bno=<?php echo $bno?>">수정</a>
+			<a href="./delete.php">삭제</a>
+			<a href="./">목록</a>
+		</div>
 	</article>
 </div>
 	<?php include("frame/footer.php");?>
