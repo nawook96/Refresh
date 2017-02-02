@@ -17,9 +17,8 @@
 
  $count = mysqli_num_rows($result);
 
- if(count == 1)
+ if($count == 1)
  {
-   session_register("id");
    $_SESSION['logined_user'] = $id;
    echo "<script>location.href = 'index.php'</script>";
  }
