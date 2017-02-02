@@ -2,6 +2,21 @@
 	require_once("dbconfig.php");
 	$bno = $_GET['bno'];
 
+		if(!empty($bNo) && empty($_COOKIE['board_db_' . $bNo])) {
+			$sql = 'update board_db set b_hit = b_hit + 1 where b_no = ' . $bNo;
+			$result = $db->query($sql);
+			if(empty($result)) {
+				?>
+				<script>
+					alert('오류가 발생했습니다.');
+					history.back();
+				</script>
+				<?php
+			} else {
+				// setcookie('board_db_' . $bNo, TRUE, time() + (60 * 60 * 24), '/');
+			}
+		}
+
 	$sql = 'select b_title, b_content, b_date, b_hit from board_db where b_no = ' . $bno;
 	$result = $db->query($sql);
 
@@ -13,8 +28,8 @@
 <head>
 	<meta charset="utf-8" />
 	<title>자유게시판</title>
-	<link rel="stylesheet" href="./css/style.css" />
-	<link rel="stylesheet" href="./css/board.css" />
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="css/board.css" />
 </head>
 <body>
 	<?php include("frame/header.php");?>
@@ -33,7 +48,7 @@
 		</div>
 		<div class="btnSet">
 			<a href="./board_write.php?bno=<?php echo $bno?>">수정</a>
-			<a href="./delete.php">삭제</a>
+			<a href="./delete.php?bno=<?php echo $bno?>">삭제</a>
 			<a href="./">목록</a>
 		</div>
 	</article>

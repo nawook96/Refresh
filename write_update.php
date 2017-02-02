@@ -20,13 +20,6 @@
 
 			$sql = 'update board_db set b_title="' . $bTitle . '", b_content="' . $bContent . '" where b_no = ' . $bNo;
 			$msgState = '수정';
-	?>
-			<script>
-				alert("<?php echo $msg?>");
-				history.back();
-			</script>
-		<?php
-			exit;
 		}
 
 		//글 등록
@@ -38,8 +31,9 @@
 
 	//메시지가 없다면 (오류가 없다면)
 	if(empty($msg)) {
+
 			$result = $db->query($sql);
-echo '글수정';
+
 			//쿼리가 정상 실행 됐다면,
 		if($result) {
 

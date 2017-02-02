@@ -2,6 +2,8 @@
 
 #boardList table {
   width:560px;
+  border-collapse: collapse;
+
 }
 
 #boardList th {
@@ -33,7 +35,30 @@
 #boardList .btnSet {
   text-align:right;
 }
+#boardList .paging {
+  text-align: center;
+}
 
+#boardList .paging li {
+  display: inline-block;
+  height: 20px;
+  margin: 0 5px;
+  padding: 0 5px;
+  border: 1px solid #666;
+  background: #eee;
+  line-height: 21px;
+}
+
+#boardList .paging li.current, #boardList .paging li:hover {
+  background: #666;
+}
+#boardList .paging li.current, #boardList .paging li:hover a {
+   color: #ddd;
+ }
+#boardList .searchBox{
+  text-align: center;
+}
+ 
 /* 글쓰기 */
 
 #boardWrite {
@@ -42,17 +67,14 @@
   margin : 10px;
   padding:2px;
   background-color: white;
-}
-
-#boardWrite td, th{
-  padding : 10px;
-}
-
-#boardWrite, table, td, th{
-  /*border-spacing: 2px;*/
   border : thin solid gray;
   border-collapse: collapse;
 }
+
+#boardWrite tbody td, tbody th{
+  padding : 10px;
+}
+
 .cellcolor{
   background-color: #999999;
   font: white;
@@ -61,6 +83,44 @@
 
 /* 글읽기 */
 
-#boardView #boardTitle {border-bottom: 2px solid #333}
-#boardView #boardInfo {margin: 10px 0}
-#boardView #boardContent {margin: 10px 0}
+#boardView #boardTitle {
+  border-bottom: 2px solid #333;
+}
+
+#boardView #boardInfo {
+  margin: 10px 0;
+}
+#boardView #boardContent {
+  margin: 10px 0;
+}
+
+/* 글삭제 */
+#boardDelete table {
+  width:560px;
+}
+
+#boardDelete p {
+  text-align: center;
+  color : #B70000;
+  font-weight: bold;
+}
+
+#boardDelete tbody th, thead th {
+  width:100px;
+  padding:5px;
+  text-align:center;
+  vertical-align: top;
+}
+#boardDelete tbody td {
+  width:620px;
+  padding:5px;
+}
+#boardDelete .btnSet {
+  text-align:center;
+}
+
+#boardDelete table, tbody td, tbody th{
+  /*border-spacing: 2px;*/
+  border : thin solid gray;
+  border-collapse: collapse;
+}

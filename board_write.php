@@ -34,7 +34,7 @@
       <B>글 쓰 기</B>
   </div>
 </p>
-  <form action=write_update.php method=post>
+  <form action="./write_update.php" method=post>
     <?php
   				if(isset($bNo)) {
   					echo '<input type="hidden" name="bno" value="' . $bNo . '">';
