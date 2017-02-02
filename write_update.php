@@ -26,6 +26,7 @@
 	 else {
 	$sql = 'insert into board_db (b_type, b_no, b_title, b_content, b_date, b_hit, b_src) values(0, null, "' . $bTitle . '", "' . $bContent . '", "' . $date . '", 0, null)';
 			$msgState = '등록';
+
 		}
 
 
@@ -47,7 +48,7 @@
 	?>
 			<script>
 				alert("<?php echo $msg?>");
-				//history.back();
+				// history.back();
 			</script>
 	<?php
 			exit;

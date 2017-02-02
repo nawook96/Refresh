@@ -9,6 +9,7 @@ $topRight = 'topRight';
 $login = 'login.php';
 $logout = 'logout.php';
 $signup = 'SignUp.php';
+$setting = 'setting.php';
 $true = 'true';
 $color = 'color:#9D9D9D';
 ?>
@@ -16,7 +17,20 @@ $color = 'color:#9D9D9D';
 <nav>
 <ul>
   <li> <a class="selected" href="index.php">HOME</a></li>
-  <li> <a href="setting.php"> SETTING </a> </li>
+  <?php
+  if(isset($_SESSION['logined_user']))
+  {
+    $id=$_SESSION['logined_user'];
+    $sql = mysqli_query($db, "SELECT m_id FROM member WHERE m_id='$id' AND isAdmin = 1");
+    $row = mysqli_fetch_array($sql);
+    $login_session = $row['m_id'];
+
+    if(isset($login_session))
+    {
+    echo "<li> <a href=$setting> SETTING </a></li>";
+    }
+  }
+?>
 
   <li>
     <?php

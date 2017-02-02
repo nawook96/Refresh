@@ -98,8 +98,14 @@ $paging .= '<li class="page page_next"><a href="./index.php?page=' . $nextPage .
 		if($page != $allPage) {
 			$paging .= '<li class="page page_end"><a href="./index.php?page=' . $allPage . $subString . '">끝</a></li>';
 		}
-		$paging .= '</ul>';
 
+
+		if($paging == 1)
+		{
+				$paging .= '<li class="page current">1</li>';
+		}
+
+			$paging .= '</ul>';
 		/* 페이징 끝 */
 
 
