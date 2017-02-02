@@ -39,7 +39,7 @@ nav ul li a:link, nav ul li a:visited{
 }
 
 
-#allcontent{
+.allcontent{
   margin: 10px 10px 0px 10px;
   padding-top: 20px;
   padding-bottom: 5px;
@@ -49,6 +49,7 @@ aside{
   width:190px;
   float:left;
 }
+
 #profileBox{
   height: 250px;
 }

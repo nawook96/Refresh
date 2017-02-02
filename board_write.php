@@ -19,8 +19,8 @@
       <B>글 쓰 기</B>
   </div>
 </p>
-  <form action=insert.php method=post>
-  <table>
+  <form action=write_update.php method=post>
+  <table id="boardWrite">
       <tr>
         <td width=150px nowrap align=left >
           <select style="width:150px" name="게시판">
@@ -29,7 +29,7 @@
           </select>
         </td>
         <td align=left width=588px nowrap>
-            <input type=text name=title style="width:580px" maxlength=35
+            <input type=text name=bTitle style="width:580px" maxlength=35
             onfocus="if(this.value =='제목을 입력하세요') this.value='';"
             onblur="if(this.value =='') this.value='제목을 입력하세요';" value="제목을 입력하세요">
         </td>
@@ -37,7 +37,7 @@
     <tr>
         <td width=150px align=left >내용</td>
         <td align=left  width=578px nowrap>
-            <TEXTAREA style = "width:578px"name=content cols=90 rows=15></TEXTAREA>
+            <TEXTAREA style = "width:578px"name=bContent cols=90 rows=15></TEXTAREA>
         </td>
     </tr>
   <tr>
