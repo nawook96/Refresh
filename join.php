@@ -15,7 +15,7 @@
  $gender = $_POST['m_gender'];
  $email = $_POST['m_email'];
 
- $sql = "INSERT INTO ".$db_table." VALUES ('$id','$password','$name' , '$tel', '$year', '$email', '$gender' , 0)";
+ $sql = "INSERT INTO ".$db_table." VALUES ('$id','$password','$name' , '$tel', '$year', '$email', '$gender' , 1)";
 
  if(mysqli_query($conn, $sql))
  {
@@ -25,7 +25,7 @@
  else
  {
  echo "<script>alert('ID중복입니다. 입력을 다시한번 확인해주세요..');</script>";
- echo "<script>location.href = 'SignUp.php'</script>";
+ //echo "<script>location.href = 'SignUp.php'</script>";
  }
 
 ?>
