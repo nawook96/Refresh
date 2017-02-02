@@ -12,7 +12,7 @@
 <body>
   <?php include("frame/header.php");?>
   <?php include("frame/navbar.php");?>
-  <div id = "allcontent">
+  <div>
     <form name="joinfrm" id="joinfrm" action="join.php" method="post">
   <input type="hidden" id="id_ch" name="id_ch" value="false"/>
   <input type="hidden" id="pass_ch" name="pass_ch" value="false"/>

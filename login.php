@@ -19,7 +19,7 @@ if(isset($_SESSION['logined_user']))
 <body>
   <?php include("frame/header.php");?>
   <?php include("frame/navbar.php");?>
-  <div id = "allcontent">
+  <div class = "allcontent">
     <form name="joinfrm" id="joinfrm" action="memberjoin.php" method="post">
   <div class ="wrapper_table">
    <div class="join_body">
