@@ -192,6 +192,7 @@ $paging .= '<li class="page page_next"><a href="./index.php?page=' . $nextPage .
   </div>
   </article>
 </div>
-</body>
 <?php include("frame/footer.php");?>
+</body>
+
 </html>
