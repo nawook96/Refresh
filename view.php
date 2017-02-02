@@ -14,7 +14,7 @@
 				</script>
 				<?php
 			} else {
-				setcookie('board_db_' . $bno, TRUE, time() + (60 * 60 * 24), '/');
+				// setcookie('board_db_' . $bno, TRUE, time() + (60 * 60 * 24), '/');
 			}
 		}
 
@@ -51,6 +51,9 @@
 			<a href="./board_write.php?bno=<?php echo $bno?>">수정</a>
 			<a href="./delete.php?bno=<?php echo $bno?>">삭제</a>
 			<a href="./">목록</a>
+		</div>
+		<div id="boardComment">
+			<?php include('comment.php'); ?>
 		</div>
 	</article>
 </div>
