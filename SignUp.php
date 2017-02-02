@@ -13,7 +13,7 @@
   <?php include("frame/header.php");?>
   <?php include("frame/navbar.php");?>
   <div id = "allcontent">
-    <form name="joinfrm" id="joinfrm" action="membersave.php" method="post">
+    <form name="joinfrm" id="joinfrm" action="join.php" method="post">
   <input type="hidden" id="id_ch" name="id_ch" value="false"/>
   <input type="hidden" id="pass_ch" name="pass_ch" value="false"/>
   <input type="hidden" id="email_ch" name="email_ch" value="false"/>
@@ -63,7 +63,7 @@
      &nbsp-&nbsp<input id = "m_tel3" name ="m_tel3" type="text" maxlength="4" minlength="4" size="4" required/>
      </dd>
      <dt><label>Gender</label></dt>
-     <dd><input id="m_gender" name="m_gender" type="radio" value="남" required>남</input>&nbsp&nbsp<input name="m_gender" id="m_gender" type="radio" value="여"required>여</input></dd>
+     <dd><input id="m_gender" name="m_gender" type="radio" value="man" required>남</input>&nbsp&nbsp<input name="m_gender" id="m_gender" type="radio" value="woman"required>여</input></dd>
      <dt><label>Email</label></dt>
      <dd><input id="m_email" name="m_email" type="text" placeholder="E-mail"/></dd>
     <div class='arrow_box' id="email_notice" style="display:none;">
