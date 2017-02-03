@@ -31,7 +31,7 @@ function doSubmit() {
  if(blankcheck(joinfrm.m_name,'이름'))
   return;
 
- if(blankcheck(joinfrm.m_year,'년도'))
+ if(blankcheck(joinfrm.m_year,'년도' || joinfrm.year_ch.value == false))
   return;
 
  if(blankcheck(joinfrm.m_tel1,'전화'))
@@ -54,7 +54,6 @@ $(document).ready(function() {
  var check_Num= /[0-9]/;
  var check_Num_Eng= /[0-9]|[a-z]|[A-Z]/;
  var check_kor = /([^가-힣ㄱ-ㅎㅏ-ㅣ\x20])/i;
- var check_year = /[1900-2020]/;
  var check_email = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
  $("#m_id").change(function(){
   joinfrm.id_ch.value = false;
@@ -110,6 +109,17 @@ $(document).ready(function() {
   alert("비밀번호가 일치합니다.");
   $("#pass_ch_notice").css("display","none");
   joinfrm.pass_ch.value = true;
+ });
+
+ $("#m_year").change(function(){
+  joinfrm.year_ch.value = false;
+  var year = joinfrm.m_year.value;
+
+  if(year.length != 4 || !year.match(check_Num)){
+    alert("출생년도는 4자리 숫자로 입력해 주세요.");
+   return;
+  }
+  joinfrm.year_ch.value = true;
  });
 
  $("#m_email").change(function(){
