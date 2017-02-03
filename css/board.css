@@ -37,6 +37,7 @@
 }
 
 #boardList .btnSet {
+  margin-top: 10px;
   text-align:right;
 }
 #boardList .paging {
@@ -103,6 +104,7 @@
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
+  margin-bottom:20px;
 }
 
 #boardComment table th {
@@ -147,7 +149,10 @@
 }
 #commentView .commentContent {
   clear: both;
-} 
+}
+.btnSet{
+  float:right;
+}
 
 
 /* 글삭제 */

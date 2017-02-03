@@ -75,8 +75,8 @@
     </tr>
     <tr>
         <td colspan=10 align=center>
-            <INPUT type=submit>
-              <?php echo isset($bno)?'수정':'작성'?>
+            <INPUT type=submit value="Write">
+              <!-- <?php echo isset($bno)?'수정':'작성'?> -->
             &nbsp;&nbsp;
             <INPUT type=reset value="다시 쓰기">
             &nbsp;&nbsp;

@@ -38,7 +38,7 @@
 	<div class = "allcontent">
 		<?php include("frame/aside_user.php"); ?>
 	<article class="boardArticle">
-		<h3>자유게시판 글쓰기</h3>
+		<h3><a href = "index.php">자유게시판</a></h3>
 		<div id="boardView">
 			<h3 id="boardTitle"><?php echo $row['b_title']?></h3>
 			<div id="boardInfo">

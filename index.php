@@ -134,7 +134,7 @@ $paging .= '<li class="page page_next"><a href="./index.php?page=' . $nextPage .
   <h1>자유게시판</h1>
   	<div id="boardList">
 	  <table>
-	    <caption class="readHide">자유게시판</caption>
+	    <!-- <caption class="readHide">자유게시판</caption> -->
 	    <thead>
 	      <tr>
 	        <th scope="col" class="no">번호</th>
