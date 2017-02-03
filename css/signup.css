@@ -95,18 +95,19 @@ table .notice{
 
 .join_body dd select{
  font-size: 20px;
- width: 115px;
+ width: 104px;
  height: 40px;
 }
 
 #m_tel2, #m_tel3{
- width: 110px;
+ width: 104px;
  height: 36px;
  padding : 0;
 }
 
 #m_gender{
  width: 100px;
+ height:20px;
 }
 
 /*join_footer*/
