@@ -7,7 +7,7 @@
   <div id="sidebar">
     <ul>
       <li> 공지사항 </li>
-      <li> <a href="view.php"> 자유게시판</a>  </li>
+      <li> <a href="index.php"> 자유게시판</a>  </li>
       <li> 공부 </li>
     </ul>
   </div>
