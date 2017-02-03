@@ -65,11 +65,12 @@ table .notice{
  height: auto;
  text-align: center;
  width: 500px;
-
+padding-top: 10px;
+padding-bottom:20px;
 }
 /*join_body*/
 .wrapper_table .join_body{
- border-bottom: 1px solid #bbb;
+ /*border-bottom: 1px solid #bbb;*/
  height: auto;
  text-align: center;
  padding: 0px 50px 20px 50px;
@@ -91,6 +92,8 @@ table .notice{
  height: 40px;
  padding: 0 20px;
  font-size: 20px;
+ margin-bottom: 10px;
+
 }
 
 .join_body dd select{
@@ -119,9 +122,11 @@ table .notice{
 .join_footer input{
  border: 0px;
  background: black;
- width: 400px;
+ width: 360px;
  height: 40px;
- margin: 5px;
+ margin:10px 0px 5px 0px;
+ margin-left: auto;
+ margin-right: auto;
  font-size: 20px;
  color: pink;
 }
