@@ -17,6 +17,7 @@ include('adminlock.php');
 <?php include("frame/navbar.php");?>
 <div class = "allcontent">
   <?php include("frame/aside_admin.php");?>
+  <?php include("admin/member_manage.php";)?>
 </div>
 <?php include("frame/footer.php");?>
 </body>

@@ -1,6 +1,9 @@
 <?php
 	require_once("dbconfig.php");
-
+	if(!isset($_SESSION))
+	{
+	  session_start();
+	}
 	/* 페이징 시작 */
 		//페이지 get 변수가 있다면 받아오고, 없다면 1페이지를 보여준다.
 		if(isset($_GET['page'])) {
@@ -119,6 +122,7 @@ $paging .= '<li class="page page_next"><a href="./index.php?page=' . $nextPage .
 
 }
 
+
 ?>
 
 <!DOCTYPE html>
@@ -179,9 +183,25 @@ $paging .= '<li class="page page_next"><a href="./index.php?page=' . $nextPage .
 	        ?>
 	    </tbody>
 	  </table>
-  <div class="btnSet">
-      <a href="./board_write.php" class="btnWrite btn">글쓰기</a>
-    </div>
+		<?php
+	  if(isset($_SESSION['logined_user']))
+	  {
+	    $id=$_SESSION['logined_user'];
+	    $sql = mysqli_query($db, "SELECT m_id FROM member WHERE m_id='$id' AND isAdmin = 1");
+	    $row = mysqli_fetch_array($sql);
+	    $login_session = $row['m_id'];
+
+			$btnSet = 'btnSet';
+			$boardwrite = './board_write.php';
+
+	    if(isset($login_session))
+	    {
+	    echo "<div class=$btnSet>
+		      <a href= $boardwrite class='btnWrite btn'>글쓰기</a>
+		    </div>";
+	    }
+	  }
+	?>
 		<div class="paging">
 			<?php echo $paging ?>
 		</div>
