@@ -57,15 +57,12 @@ $(document).ready(function() {
  var check_year = /[1900-2020]/;
  var check_email = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
  $("#m_id").change(function(){
-  joinfrm.id_ch.value = false; //id_ch 히든값 초기화 후 검사 시작
+  joinfrm.id_ch.value = false;
   console.log('1. '+joinfrm.id_ch.value);
-  // alert('id값 변경');
   var id = joinfrm.m_id.value;
   var id_flag = false;
   if(id.match(check_Num_Eng) == null || id.match(check_Eng) == null){
-  /*if(!check_kor.test(id)){*/
    $("#info_id1").css("color","red");
-   // alert('영문 또는 영문,숫자 조합을 사용하여야 합니다.');
    id_flag = true;
   }else{$("#info_id1").css("color","blue");}
 
@@ -83,12 +80,9 @@ $(document).ready(function() {
 
  $("#m_pass").change(function(){
   joinfrm.pass_ch.value = false;
-  // joinfrm.m_pass_ch.value = ""; //비밀번호 변경시 비밀번호 확인 칸 초기화
   var pass = joinfrm.m_pass.value;
-  // alert("포커스 아웃  " + pass);
   var pass_flag = false;
   if(pass.match(check_Num_Eng) == null || pass.match(check_Num) == null || pass.match(check_Eng) == null){
-   // alert("패스워드 잘못됨");
    $("#info_pass1").css("color","red");
    pass_flag = true;
   }else{$("#info_pass1").css("color","blue");}
