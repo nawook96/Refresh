@@ -1,5 +1,5 @@
 <?php
-include ('../dbconfig.php');
+include ('dbconfig.php');
 if(!isset($_SESSION))
 {
   session_start();
