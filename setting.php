@@ -1,5 +1,6 @@
 <?php
 include('adminlock.php');
+require_once ('dbconfig.php');
 ?>
 
 <!DOCTYPE html>
