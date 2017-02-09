@@ -6,7 +6,7 @@
 	$coId = $_POST['coId'];
 	$coContent = $_POST['coContent'];
 
-	$sql = 'insert into comment_free values(null, ' .$bno . ', null, "' . $coContent . '", "' . $coId . '")';
+	$sql = 'insert into comment_free values(null, ' .$bno . ', null, "' . $coId . '", "' . $coContent . '")';
 	$result = $db->query($sql);
 	$coNo = $db->insert_id;
 
