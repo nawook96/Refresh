@@ -14,7 +14,7 @@
 				</script>
 				<?php
 			} else {
-				// setcookie('board_db_' . $bno, TRUE, time() + (60 * 60 * 24), '/');
+				setcookie('board_db_' . $bno, TRUE, time() + (60 * 60 * 24), '/');
 			}
 		}
 
