@@ -12,8 +12,9 @@
 
 	//공통 변수
 	$bno = $_POST['bno'];
-	//$coPassword = $_POST['coPassword'];
 
+	//$coPassword = $_POST['coPassword'];
+	echo "들어옴";
 	if($w !== 'd') {//$w 변수가 d일 경우 $coContent와 $coId가 필요 없음.
 		$coContent = $_POST['coContent'];
 		if($w !== 'u') {//$w 변수가 u일 경우 $coId가 필요 없음.
