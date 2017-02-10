@@ -72,7 +72,7 @@
 	$(document).ready(function () {
 		var commentSet = '';
 		var action = '';
-		$('#commentView').live('.comt', 'click', function () {
+		$('#commentView').on('.comt', 'click', function () {
 			//현재 작성 내용을 변수에 넣고, active 클래스 추가.
 			commentSet = $(this).parents('.commentSet').html();
 			$(this).parents('.commentSet').addClass('active');
@@ -147,7 +147,7 @@
 			return false;
 		});
 
-		$('#commentView').live(".cancel", "click", function () {
+		$('#commentView').on(".cancel", "click", function () {
 			if(action == 'w') {
 				$('.writeComment').remove();
 			} else if(action == 'u') {
