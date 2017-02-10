@@ -6,7 +6,7 @@
   </div>
   <div id="sidebar">
     <ul>
-      <li> <a href="admin/member_manage.php"> 회원 관리 </a> </li>
+      <li> <a> 회원 관리 </a> </li>
       <li> <a href="board_manage.php"> 게시물 관리 </a> </li>
     </ul>
   </div>
