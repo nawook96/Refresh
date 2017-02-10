@@ -16,7 +16,6 @@
     <form name="joinfrm" id="joinfrm" action="join.php" method="post">
   <input type="hidden" id="id_ch" name="id_ch" value="false"/>
   <input type="hidden" id="pass_ch" name="pass_ch" value="false"/>
-  <input type="hidden" id="year_ch" name="year_ch" value="false"/>
   <input type="hidden" id="email_ch" name="email_ch" value="false"/>
   <input type="hidden" id="m_tel" name="m_tel" value=""/>
   <div class ="wrapper_table">

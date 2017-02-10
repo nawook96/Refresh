@@ -20,7 +20,10 @@
 
 	$sql = 'select b_title, b_content, b_date, b_hit from board_db where b_no = ' . $bno;
 	$result = $db->query($sql);
-
+	if(!$result)
+	{
+		echo '오류가 발생했습니다.';
+	}
 	$row = $result->fetch_assoc();
 ?>
 

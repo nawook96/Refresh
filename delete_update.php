@@ -1,8 +1,8 @@
 <?php
 	require_once("dbconfig.php");
 
-  $bno = $_POST['bno'];
-  echo $bno;
+  // $bno = $_POST['bno'];
+  // echo $bno;
 	//$_POST['bno']이 있을 때만 $bno 선언
 	if(isset($_POST['bno'])) {
 		$bno = $_POST['bno'];
