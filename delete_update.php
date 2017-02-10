@@ -12,13 +12,16 @@
 //글 삭제
 if(isset($bno)) {
 	$sql = 'delete from board_db where b_no = ' . $bno;
+	$result = $db->query($sql);
+	$sql = 'delete from comment_free where b_no='.$bno;
+	$result2=$db->query($sql);
 	//틀리다면 메시지 출력 후 이전화면으로
 }
 
-	$result = $db->query($sql);
+
 
 //쿼리가 정상 실행 됐다면,
-if($result) {
+if($result && $result2) {
 	$msg = '정상적으로 글이 삭제되었습니다.';
 	$replaceURL = './';
 } else {

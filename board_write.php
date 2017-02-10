@@ -5,7 +5,7 @@
 	if(isset($_GET['bno'])) {
 		$bno = $_GET['bno'];
 	}
-
+	$fsize = "25165824";//파일 최대 용량
 	if(isset($bno)) {
 		$sql = 'select b_title, b_content from board_db where b_no = ' . $bno;
 		$result = $db->query($sql);
@@ -34,7 +34,7 @@
       <B>글 쓰 기</B>
   </div>
 </p>
-  <form action="./write_update.php" method=post>
+  <form action="./write_update.php" method=post ENCTYPE='multipart/form-data'>
     <?php
   				if(isset($bno)) {
   					echo '<input type="hidden" name="bno" value="' . $bno . '">';
@@ -64,10 +64,13 @@
     </tr>
   <tr>
       <td rowspan="2" width=150px align=left>사진 첨부</td>
-      <td  align=left id="status"></td>
+      <td  align=left id="status">
+				<input type="hidden" name=MAX_FILE_SIZE value="<?=$fsize?>">
+				  파일 용량 제한 : 3MB
+			</td>
     </tr>
     <tr>
-      <td  align=left>
+      <td align=left>
         <input type="file" name="fileName" accept="image/gif, image/jpeg, image/png">
       </td>
     </tr>
@@ -75,8 +78,7 @@
     </tr>
     <tr>
         <td colspan=10 align=center>
-            <INPUT type=submit value="Write">
-              <!-- <?php echo isset($bno)?'수정':'작성'?> -->
+            <INPUT type=submit value=<?php echo isset($bno)?'수정':'작성'?>>
             &nbsp;&nbsp;
             <INPUT type=reset value="다시 쓰기">
             &nbsp;&nbsp;
@@ -100,15 +102,16 @@ var upload = document.getElementsByName('fileName')[0],
     state = document.getElementById('status');
 
 if (typeof window.FileReader === 'undefined') {
-  state.className = 'fail';
+  state.className += 'fail';
 } else {
-  state.className = 'success';
-  state.innerHTML = '가능';
+  state.className += 'success';
+  state.innerHTML += ' 사진 첨부 가능';
 
 }
 
 upload.onchange = function (e) {
   e.preventDefault();
+
 
   var file = upload.files[0],
       reader = new FileReader();
@@ -123,6 +126,15 @@ upload.onchange = function (e) {
     holder.appendChild(img);
   };
   reader.readAsDataURL(file);
+	var maxSize = 25165824;
+	var fileSize = file.size;
+	fileSize = fileSize / 8388608;
+	state.innerHTML += ' <파일 사이즈 : ' + fileSize + 'MB>';
+	if(fileSize > maxSize)
+	{
+		alert("첨부파일 사이즈는 3MB 이내로 등록 가능합니다.");
+		// history.back();
+	}
 
   return false;
 };

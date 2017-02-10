@@ -15,18 +15,45 @@
 	$bContent = $_POST['bContent'];
 
 
+	if(isset($_FILES['fileName']))
+	{
+		$iName = $_FILES['fileName']['name'];
+		$iPath = "images/upload/".$_FILES['fileName']['name'];
+		$iSize = $_FILES['fileName']['size'];
+		$tmp_file = $_FILES['fileName']['tmp_name'];
+
+	}
 	//글 수정
 	if(isset($bno)) {
 
-			$sql = 'update board_db set b_title="' . $bTitle . '", b_content="' . $bContent . '" where b_no = ' . $bno;
+			$sql = 'update board_db set b_title="' . $bTitle . '", b_content="' . $bContent . '" where b_no = "' . $bno.'"';
 			$msgState = '수정';
+
+				if(isset($_FILES['fileName']))
+				{
+					if (()$db->query('select COUNT(*) from board_image where b_no = "'.$bno'"')) != 0)
+				{
+					$sql2 = 'update board_image set i_path="'.$iPath.'", i_name="'.$iName.'", i_size="'.$iSize.'" where b_no = "'.$bno.'"';
+					$r = move_uploaded_file($tmp_file, $iPath);
+				}
+				else {
+					$sql2 = 'insert into board_image (i_no, b_no, i_path, i_name, i_size) values (null, "'.$bno.'", "'.$iPath.'", "'.$iName.'", "'.$iSize.'")';
+					$r = move_uploaded_file($tmp_file, $iPath);
+				}
+				}
 		}
 
-		//글 등록
+
+
+		//글 등록.
 	 else {
 	$sql = 'insert into board_db (b_type, b_no, b_title, b_content, b_date, b_hit, b_src) values(0, null, "' . $bTitle . '", "' . $bContent . '", "' . $date . '", 0, null)';
 			$msgState = '등록';
-
+			if(isset($_FILES['fileName']))
+			{
+				$sql2 = 'insert into board_image (i_no, b_no, i_path, i_name, i_size) values (null, "'.$bno.'", "'.$iPath.'", "'.$iName.'", "'.$iSize.'")';
+				$r = move_uploaded_file($tmp_file, $iPath);
+			}
 		}
 
 
@@ -34,9 +61,9 @@
 	if(empty($msg)) {
 
 			$result = $db->query($sql);
-
+			$result2= $db->query($sql2);
 			//쿼리가 정상 실행 됐다면,
-		if($result) {
+		if($result && $result2) {
 
 			$msg = '정상적으로 글이 ' . $msgState . '되었습니다.';
 			if(empty($bno)) {

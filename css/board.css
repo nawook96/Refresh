@@ -86,6 +86,18 @@
   margin:10px;
 }
 
+#holder img
+{
+  vertical-align: middle;
+  display: block;
+  margin-left: 100px;
+  margin-right: auto;
+
+}
+#boardWrite tbody{
+    border-right: thin solid gray;
+}
+
 /* 글읽기 */
 
 #boardView #boardTitle {
