@@ -31,15 +31,24 @@
 
 				if(isset($_FILES['fileName']))
 				{
-					if (()$db->query('select COUNT(*) from board_image where b_no = "'.$bno'"')) != 0)
-				{
-					$sql2 = 'update board_image set i_path="'.$iPath.'", i_name="'.$iName.'", i_size="'.$iSize.'" where b_no = "'.$bno.'"';
-					$r = move_uploaded_file($tmp_file, $iPath);
-				}
-				else {
-					$sql2 = 'insert into board_image (i_no, b_no, i_path, i_name, i_size) values (null, "'.$bno.'", "'.$iPath.'", "'.$iName.'", "'.$iSize.'")';
-					$r = move_uploaded_file($tmp_file, $iPath);
-				}
+					$query = 'select * from board_image where b_no = "'.$bno.'"';
+					$count = $db->query($query);
+					$num = mysqli_num_rows($count);
+			
+						if ($num != 0)
+					{
+						$sql3 = 'select i_path from board_image where b_no = "' . $bno.'"';
+						$r3 = $db->query($sql3);
+						$rr = $r3->fetch_assoc();
+						unlink($rr['i_path']);
+						$sql2 = 'update board_image set i_path="'.$iPath.'", i_name="'.$iName.'", i_size="'.$iSize.'" where b_no = "'.$bno.'"';
+						$r = move_uploaded_file($tmp_file, $iPath);
+
+					}
+					else {
+						$sql2 = 'insert into board_image (i_no, b_no, i_path, i_name, i_size) values (null, "'.$bno.'", "'.$iPath.'", "'.$iName.'", "'.$iSize.'")';
+						$r = move_uploaded_file($tmp_file, $iPath);
+					}
 				}
 		}
 
@@ -51,7 +60,10 @@
 			$msgState = '등록';
 			if(isset($_FILES['fileName']))
 			{
-				$sql2 = 'insert into board_image (i_no, b_no, i_path, i_name, i_size) values (null, "'.$bno.'", "'.$iPath.'", "'.$iName.'", "'.$iSize.'")';
+				$sql = 'select * from board_db size order by b_date DESC limit 1';
+				$re = $db->query($sql);
+				$num = $re->fetch_assoc();
+				$sql2 = 'insert into board_image (i_no, b_no, i_path, i_name, i_size) values (null, "'.$num['b_no'].'", "'.$iPath.'", "'.$iName.'", "'.$iSize.'")';
 				$r = move_uploaded_file($tmp_file, $iPath);
 			}
 		}

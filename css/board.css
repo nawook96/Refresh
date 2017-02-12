@@ -111,6 +111,11 @@
   margin: 10px 0;
 }
 
+#boardImage img
+{
+  width: 100%;
+  height: auto;
+}
 /* 댓글 쓰기*/
 #boardComment table {
   width: 100%;

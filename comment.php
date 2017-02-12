@@ -1,8 +1,9 @@
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <?php
 	$sql = 'select * from comment_free where co_no=co_order and b_no=' . $bno;
 	$result = $db->query($sql);
 ?>
-<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script> -->
 <script>
 	$(document).ready(function () {
 		var commentSet = '';
@@ -13,7 +14,7 @@
 			$(this).parents('.commentSet').addClass('active');
 
 			//취소 버튼
-			var commentBtn = '<a href="#" class="addComt cancel">취소</a>';
+			var commentBtn = '<a href="javascript:void(0)" class="addComt cancel">취소</a>';
 
 			//버튼 삭제 & 추가
 			$('.comt').hide();
@@ -108,9 +109,9 @@
 					<div class="commentInfo">
 						<div class="commentId">작성자: <span class="coId"><?php echo $row['co_id']?></span></div>
 						<div class="commentBtn">
-							<a href="#" class="comt write">댓글</a>
-							<a href="#" class="comt modify">수정</a>
-							<a href="#" class="comt delete">삭제</a>
+							<a href="javascript:void(0)" class="comt write">댓글</a>
+							<a href="javascript:void(0)" class="comt modify">수정</a>
+							<a href="javascript:void(0)" class="comt delete">삭제</a>
 						</div>
 					</div>
 					<div class="commentContent"><?php echo $row['co_content']?></div>
@@ -127,8 +128,8 @@
 							<div class="commentInfo">
 								<div class="commentId">작성자:  <span class="coId"><?php echo $row2['co_id']?></span></div>
 								<div class="commentBtn">
-									<a href="#" class="comt modify">수정</a>
-									<a href="#" class="comt delete">삭제</a>
+									<a href="javascript:void(0)" class="comt modify">수정</a>
+									<a href="javascript:void(0)" class="comt delete">삭제</a>
 								</div>
 							</div>
 							<div class="commentContent"><?php echo $row2['co_content'] ?></div>

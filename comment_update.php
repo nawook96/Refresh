@@ -24,7 +24,7 @@
 
 	if(empty($w) || $w === 'w') { //$w 변수가 비어있거나 w인 경우
 		$msg = '작성';
-		$sql = 'insert into comment_free values(null, ' .$bno . ', ' . $coNo . ', "' . $coContent . '", "' . $coId . '")';
+		$sql = 'insert into comment_free values(null, ' .$bno . ', ' . $coNo . ', "' . $coId . '", "' . $coContent . '")';
 
 
 		if(empty($w)) { //$w 변수가 비어있다면,
