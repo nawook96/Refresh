@@ -1,12 +1,15 @@
 <?php
 include('./dbconfig.php');
 
+
 $modify = 'admin/member_modify.php';
 $delete = 'admin/member_delete.php';
 $list = mysqli_query($db, "SELECT * FROM member WHERE isAdmin = 0");
+$num = 1;
 
  echo "<table border = '1'>
  <tr>
+ <th></th>
  <th>ID</th>
  <th>이름</th>
  <th>전화 번호</th>
@@ -21,6 +24,7 @@ $list = mysqli_query($db, "SELECT * FROM member WHERE isAdmin = 0");
  {
    $id = $row['m_id'];
    echo "<tr>";
+   echo "<td>" . $num++ . "</td>";
    echo "<td>" . $id . "</td>";
    echo "<td>" . $row['m_name'] . "</td>";
    echo "<td>" . $row['m_tel'] . "</td>";
