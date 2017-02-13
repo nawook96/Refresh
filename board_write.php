@@ -10,6 +10,11 @@
 		$sql = 'select b_title, b_content from board_db where b_no = ' . $bno;
 		$result = $db->query($sql);
 		$row = $result->fetch_assoc();
+		$sql2 = 'select i_path from board_image where b_no = '.$bno;
+		$result2 = $db->query($sql2);
+		$row2 = $result2->fetch_assoc();
+		$iPath = $row2['i_path'];
+		$img = file_get_contents($iPath);
 	}
 ?>
 
@@ -71,7 +76,15 @@
     </tr>
     <tr>
       <td align=left>
-        <input type="file" name="fileName" accept="image/gif, image/jpeg, image/png">
+        <input onclick = 'check();' type="file" name="fileName" accept="image/gif, image/jpeg, image/png">				<div  class = "boardImage">
+				<?php
+				if(isset($iPath))
+				{?>
+					<img src="<?php echo $iPath?>">
+					<?php
+				}
+				?>
+			</div>
       </td>
     </tr>
     <tr align=center id="holder">
@@ -108,7 +121,25 @@ if (typeof window.FileReader === 'undefined') {
   state.innerHTML += ' 사진 첨부 가능';
 
 }
+</script>
+<?php
+if(isset($iPath))
+{
+	?>
+	<script>
+	function check()
+	{
+		change.innerHTML = "<input type="file" name="fileName" accept="image/gif, image/jpeg, image/png"
+		value="$img">";
+		return true;
+	}
 
+	</script>
+
+	<?php
+}
+?>
+<script>
 upload.onchange = function (e) {
   e.preventDefault();
 

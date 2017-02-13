@@ -59,7 +59,7 @@
 			</div>
 			<div id="boardContent"><?php echo $row['b_content']?></div>
 
-			<div id="boardImage">
+			<div class="boardImage">
 				<?php
 				if(isset($path))
 				{?>
