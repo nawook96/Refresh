@@ -44,6 +44,13 @@
 
 		if(empty($allPost)) {
 			$emptyData = '<tr><td class="textCenter" colspan="5">글이 존재하지 않습니다.</td></tr>';
+			$paging = '<ul>';
+			if($page == 1)
+			{
+					$paging .= '<li class="page current">1</li>';
+			}
+
+				$paging .= '</ul>';
 		} else {
 
 		$onePage = 3; // 한 페이지에 보여줄 게시글의 수.
@@ -103,11 +110,11 @@ $paging .= '<li class="page page_next"><a href="./index.php?page=' . $nextPage .
 		}
 
 
-		if($paging == 1)
-		{
-				$paging .= '<li class="page current">1</li>';
-		}
-
+		// if($page == 1)
+		// {
+		// 		$paging .= '<li class="page current">1</li>';
+		// }
+		//
 			$paging .= '</ul>';
 		/* 페이징 끝 */
 
