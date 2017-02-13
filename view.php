@@ -45,9 +45,11 @@
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 </head>
 <body>
+
 	<?php include("frame/header.php");?>
 	<?php include("frame/navbar.php");?>
 	<div class = "allcontent">
+		<?php echo $row['b_title']?>
 		<?php include("frame/aside_user.php"); ?>
 	<article class="boardArticle">
 		<h3><a href = "index.php">자유게시판</a></h3>
