@@ -4,6 +4,18 @@
 	{
 	  session_start();
 	}
+
+	if(isset($_GET['cate_id']))
+	{
+		$cate_id = $_GET['cate_id'];
+	}
+	else {
+		$cate_id = 1;
+	}
+
+$cate_list = mysqli_query($db, "SELECT c_name FROM board_category WHERE b_type = $cate_id");
+$cate_name = mysqli_fetch_array($cate_list);
+
 	/* 페이징 시작 */
 		//페이지 get 변수가 있다면 받아오고, 없다면 1페이지를 보여준다.
 		if(isset($_GET['page'])) {
@@ -28,14 +40,14 @@
 	}
 
 	if(isset($searchColumn) && isset($searchText)) {
-		$searchSql = ' where ' . $searchColumn . ' like "%' . $searchText . '%"';
+		$searchSql = ' where ' . $searchColumn . ' like "%' . $searchText . '%" AND ';
 	} else {
-		$searchSql = '';
+		$searchSql = ' WHERE ';
 	}
 
 	/* 검색 끝 */
 
-		$sql = 'select count(*) as cnt from board_db' . $searchSql;
+		$sql = 'select count(*) as cnt from board_db' . $searchSql . "b_type = $cate_id";
 
 		$result = $db->query($sql);
 		$row = $result->fetch_assoc();
@@ -141,10 +153,9 @@ $paging .= '<li class="page page_next"><a href="./index.php?page=' . $nextPage .
 <div class = "allcontent">
   <?php include("frame/aside_user.php");?>
   <article  class="boardArticle">
-  <h1>자유게시판</h1>
+  <h1><?=$cate_name['c_name'];?></h1>
   	<div id="boardList">
 	  <table>
-	    <!-- <caption class="readHide">자유게시판</caption> -->
 	    <thead>
 	      <tr>
 	        <th scope="col" class="no">번호</th>
