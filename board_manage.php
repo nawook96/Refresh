@@ -12,7 +12,8 @@
 <?php include("frame/header.php");?>
 <?php include("frame/navbar.php");?>
 <div class = "allcontent">
-
+  <?php include("frame/aside_admin.php");?>
+  <?php include("admin/board_management.php");?>
 </div>
 <?php include("frame/footer.php");?>
 </body>
