@@ -49,7 +49,6 @@
 	<?php include("frame/header.php");?>
 	<?php include("frame/navbar.php");?>
 	<div class = "allcontent">
-		<?php echo $row['b_title']?>
 		<?php include("frame/aside_user.php"); ?>
 	<article class="boardArticle">
 		<h3><a href = "index.php">자유게시판</a></h3>

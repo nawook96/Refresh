@@ -12,9 +12,13 @@
 		$row = $result->fetch_assoc();
 		$sql2 = 'select i_path from board_image where b_no = '.$bno;
 		$result2 = $db->query($sql2);
-		$row2 = $result2->fetch_assoc();
-		$iPath = $row2['i_path'];
-		$img = file_get_contents($iPath);
+		$num = mysqli_num_rows($result2);
+		if($num != 0)
+		{
+			$row2 = $result2->fetch_assoc();
+			$iPath = $row2['i_path'];
+			$img = file_get_contents($iPath);
+		}
 	}
 ?>
 
@@ -76,7 +80,8 @@
     </tr>
     <tr>
       <td align=left>
-        <input onclick = 'check();' type="file" name="fileName" accept="image/gif, image/jpeg, image/png">				<div  class = "boardImage">
+        <input  type="file" name="fileName" accept="image/gif, image/jpeg, image/png">
+					<div  class = "boardImage">
 				<?php
 				if(isset($iPath))
 				{?>
@@ -114,32 +119,16 @@ var upload = document.getElementsByName('fileName')[0],
     holder = document.getElementById('holder'),
     state = document.getElementById('status');
 
-if (typeof window.FileReader === 'undefined') {
+if (typeof window.FileReader == 'undefined') {
   state.className += 'fail';
 } else {
   state.className += 'success';
   state.innerHTML += ' 사진 첨부 가능';
 
 }
-</script>
-<?php
-if(isset($iPath))
-{
-	?>
-	<script>
-	function check()
-	{
-		change.innerHTML = "<input type="file" name="fileName" accept="image/gif, image/jpeg, image/png"
-		value="$img">";
-		return true;
-	}
+//
 
-	</script>
 
-	<?php
-}
-?>
-<script>
 upload.onchange = function (e) {
   e.preventDefault();
 
@@ -159,7 +148,7 @@ upload.onchange = function (e) {
   reader.readAsDataURL(file);
 	var maxSize = 25165824;
 	var fileSize = file.size;
-	fileSize = fileSize / 8388608;
+	fileSize = fileSize / 8192;
 	state.innerHTML += ' <파일 사이즈 : ' + fileSize + 'MB>';
 	if(fileSize > maxSize)
 	{
