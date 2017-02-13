@@ -134,8 +134,8 @@ $paging .= '<li class="page page_next"><a href="./index.php?page=' . $nextPage .
 		$currentLimit = ($onePage * $page) - $onePage; //몇 번째의 글부터 가져오는지
 		$sqlLimit = ' limit ' . $currentLimit . ', ' . $onePage; //limit sql 구문
 
-		$sql = 'select * from board_db' . $searchSql . ' order by b_no desc' . $sqlLimit; //원하는 개수만큼 가져온다. (0번째부터 20번째까지
-		$sql2 = 'select * from board_db' . $searchSql . ' order by b_no desc'; //원하는 개수만큼 가져온다. (0번째부터 20번째까지
+		$sql = 'select * from board_db' . $searchSql .  ' b_type = '.$cate_id.' order by b_no desc' . $sqlLimit; //원하는 개수만큼 가져온다. (0번째부터 20번째까지
+		$sql2 = 'select * from board_db' . $searchSql . ' b_type = '.$cate_id.' order by b_no desc'; //원하는 개수만큼 가져온다. (0번째부터 20번째까지
 		$result = $db->query($sql);
 		$result2 = $db->query($sql2);
 

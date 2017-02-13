@@ -57,7 +57,7 @@
 		//글 등록.
 	 else {
 
-	$sql = 'insert into board_db (b_type, b_no, b_title, b_content, b_date, b_hit, b_src) values(0, null, "' . $bTitle . '", "' . $bContent . '", "' . $date . '", 0, null)';
+	$sql = 'insert into board_db (b_type, b_no, b_title, b_content, b_date, b_hit, b_src) values(1, null, "' . $bTitle . '", "' . $bContent . '", "' . $date . '", 0, null)';
 			$msgState = '등록';
 			$result = $db->query($sql);
 			if(!empty($_FILES['fileName']['name']))

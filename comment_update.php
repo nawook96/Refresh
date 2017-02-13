@@ -12,9 +12,8 @@
 
 	//공통 변수
 	$bno = $_POST['bno'];
-
 	//$coPassword = $_POST['coPassword'];
-	echo "들어옴";
+
 	if($w !== 'd') {//$w 변수가 d일 경우 $coContent와 $coId가 필요 없음.
 		$coContent = $_POST['coContent'];
 		if($w !== 'u') {//$w 변수가 u일 경우 $coId가 필요 없음.
@@ -24,7 +23,7 @@
 
 	if(empty($w) || $w === 'w') { //$w 변수가 비어있거나 w인 경우
 		$msg = '작성';
-		$sql = 'insert into comment_free values(null, ' .$bno . ', ' . $coNo . ', "' . $coId . '", "' . $coContent . '")';
+		$sql = 'insert into comment_free values(null, ' .$bno . ', ' . $coNo . ', "' . $coContent . '", "' . $coId . '")';
 
 
 		if(empty($w)) { //$w 변수가 비어있다면,
@@ -41,15 +40,15 @@
 		$result = $db->query($sql);
 		$row = $result->fetch_assoc();
 
-		if(empty($row['cnt'])) { //맞는 결과가 없을 경우 종료
-?>
-			<script>
-				alert('비밀번호가 맞지 않습니다.');
-				history.back();
-			</script>
-<?php
-			exit;
-		}
+// 		if(empty($row['cnt'])) { //맞는 결과가 없을 경우 종료
+// ?>
+// 			<script>
+// 				alert('비밀번호가 맞지 않습니다.');
+// 				history.back();
+// 			</script>
+// <?php
+// 			exit;
+// 		}
 
 		$sql = 'update comment_free set co_content = "' . $coContent . '" where co_no = ' . $coNo;
 
@@ -60,16 +59,16 @@
 		$result = $db->query($sql);
 		$row = $result->fetch_assoc();
 
-		// if(empty($row['cnt'])) { //맞는 결과가 없을 경우 종료
-?>
-			<!-- <script>
-				alert('비밀번호가 맞지 않습니다.');
-				history.back();
-			</script> -->
-<?php
-			exit;
-		// }
-		$sql = 'delete from comment_free where co_no = ' . $coNo;
+// 		if(empty($row['cnt'])) { //맞는 결과가 없을 경우 종료
+// ?>
+// 			<script>
+// 				alert('비밀번호가 맞지 않습니다.');
+// 				history.back();
+// 			</script>
+// <?php
+// 			exit;
+// 		}
+		$sql = 'delete from comment_free where and co_no = ' . $coNo;
 
 	} else {
 ?>
@@ -85,7 +84,7 @@
 	if($result) {
 ?>
 		<script>
-			alert('댓글이 정상적으로 <?php echo $msg?>되었습니다.'+$bno);
+			alert('댓글이 정상적으로 <?php echo $msg?>되었습니다.');
 			location.replace("./view.php?bno=<?php echo $bno?>");
 		</script>
 <?php
