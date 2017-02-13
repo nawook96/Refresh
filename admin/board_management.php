@@ -1,13 +1,13 @@
 <?php
 include('./dbconfig.php');
 
-
+$_blank = '_blank';
 $add = 'admin/board_add.php';
 $delete = 'admin/board_delete.php';
 $list = mysqli_query($db, "SELECT * FROM board_category");
 $num = 1;
 
-echo "<button href=$add>" . "카테고리 추가" . "</button>";
+echo "<a href=$add>" . "카테고리 추가" . "</button>";
  echo "<table border = '1'>
  <tr>
  <th></th>
@@ -19,6 +19,7 @@ echo "<button href=$add>" . "카테고리 추가" . "</button>";
 
  while($row = mysqli_fetch_array($list))
  {
+   $id = $row['b_type'];
    echo "<tr>";
    echo "<td>" . $num++ . "</td>";
    echo "<td>" . $row['c_name'] . "</td>";

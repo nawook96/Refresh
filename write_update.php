@@ -34,7 +34,7 @@
 					$query = 'select * from board_image where b_no = "'.$bno.'"';
 					$count = $db->query($query);
 					$num = mysqli_num_rows($count);
-			
+
 						if ($num != 0)
 					{
 						$sql3 = 'select i_path from board_image where b_no = "' . $bno.'"';
