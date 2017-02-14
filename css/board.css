@@ -5,9 +5,12 @@
 /* 글목록 */
 
 #boardList table {
-  width:560px;
+  width:590px;
   border-collapse: collapse;
-
+    font-size: 15px;
+}
+.searchBox{
+  text-align: center;
 }
 
 #boardList th {
