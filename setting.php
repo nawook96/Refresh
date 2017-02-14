@@ -116,7 +116,8 @@ $paging .= '<li class="page page_next"><a href="./setting.php?page=' . $nextPage
   $sql2 = 'select * from member' . $searchSql . ' order by b_no desc'; //원하는 개수만큼 가져온다. (0번째부터 20번째까지
   $result = $db->query($sql);
   $result2 = $db->query($sql2);
-
+  echo $sql;
+  echo $sql2;
 }
 ?>
 
