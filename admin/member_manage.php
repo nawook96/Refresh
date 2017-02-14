@@ -1,12 +1,14 @@
 <?php
 include('./dbconfig.php');
 
-
 $modify = 'admin/member_modify.php';
 $delete = 'admin/member_delete.php';
+$boardList = 'boardList';
+$pa = 'paging';
 $list = mysqli_query($db, "SELECT * FROM member WHERE isAdmin = 0");
 $num = 1;
 
+echo "<div id=$boardList>";
  echo "<table border = '1'>
  <tr>
  <th></th>
@@ -35,4 +37,8 @@ $num = 1;
    echo "</tr>";
  }
  echo "</table>";
+ echo "<div class=$pa>";
+   echo $paging;
+ echo "</div>";
+ echo "</div>";
 ?>

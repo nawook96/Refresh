@@ -136,9 +136,6 @@ $paging .= '<li class="page page_next"><a href="./setting.php?page=' . $nextPage
 <div class = "allcontent">
   <?php include("frame/aside_admin.php");?>
   <?php include("admin/member_manage.php");?>
-  <div class="paging">
-    <?php echo $paging ?>
-  </div>
   <div class="searchBox">
     <form action="./setting.php" method="get">
       <select name="searchColumn">
