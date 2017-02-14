@@ -18,7 +18,7 @@
 			}
 		}
 
-	$sql = 'select b_title, b_content, b_date, b_hit from board_db where b_no = ' . $bno;
+	$sql = 'select b_type, b_title, b_content, b_date, b_hit from board_db where b_no = ' . $bno;
 	$result = $db->query($sql);
 	$sql = 'select i_path from board_image where b_no = '.$bno;
 	$result2 = $db->query($sql);
@@ -33,6 +33,10 @@
 		$row2 = $result2->fetch_assoc();
 		$path = $row2['i_path'];
 	}
+
+	$catesql = 'SELECT * FROM board_category WHERE b_type = ' .$row['b_type'];
+	$result3 = $db->query($catesql);
+	$cate = $result3->fetch_assoc();
 ?>
 
 <!DOCTYPE html>
@@ -51,16 +55,16 @@
 	<div class = "allcontent">
 		<?php include("frame/aside_user.php"); ?>
 	<article class="boardArticle">
-		<h3><a href = "index.php">자유게시판</a></h3>
+		<h3><a href = "index.php?cate_id=<?=$cate['b_type']?>"><?=$cate['c_name']?></a></h3>
 		<div id="boardView">
-			<h3 id="boardTitle"><?php echo htmlspecialchars($row['b_title']);?></h3>
+			<h3 id="boardTitle"><?php echo $row['b_title']?></h3>
 			<div id="boardInfo">
 				<span id="boardDate">작성일: <?php echo $row['b_date']?></span>
 				<span id="boardHit">조회: <?php echo $row['b_hit']?></span>
 			</div>
-			<div id="boardContent"><?php echo htmlspecialchars($row['b_content']);?></div>
+			<div id="boardContent"><?php echo $row['b_content']?></div>
 
-			<div class="boardImage">
+			<div id="boardImage">
 				<?php
 				if(isset($path))
 				{?>

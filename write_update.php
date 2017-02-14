@@ -13,6 +13,7 @@
 		$date = date('Y-m-d H:i:s');
 	}
 	//항상 변수 선언
+	$bType = $_POST['category'];
 	$bTitle = $_POST['bTitle'];
 	$bContent = $_POST['bContent'];
 
@@ -59,7 +60,7 @@
 		//글 등록.
 	 else {
 
-	$sql = 'insert into board_db (b_type, b_no, b_title, b_content, b_date, b_hit, b_src) values(1, null, "' . $bTitle . '", "' . $bContent . '", "' . $date . '", 0, null)';
+	$sql = 'insert into board_db (b_type, b_no, b_title, b_content, b_date, b_hit, b_src) values('. $bType . ', null, "' . $bTitle . '", "' . $bContent . '", "' . $date . '", 0, null)';
 			$msgState = '등록';
 			$result = $db->query($sql);
 			if(!empty($_FILES['fileName']['name']))

@@ -20,6 +20,7 @@
 			$img = file_get_contents($iPath);
 		}
 	}
+	$cate_sql = mysqli_query($db,"SELECT * FROM board_category ORDER BY b_type");
 ?>
 
 <!DOCTYPE html>
@@ -53,9 +54,14 @@
   <table id="boardWrite">
       <tr>
         <td width=150px nowrap align=left >
-          <select style="width:150px" name="게시판">
-            <option value="Announce">공지사항</option>
-            <option value="Extra">잡담</option>
+          <select style="width:150px" name="category" id="category">
+						<?php
+			       while($cate_row = mysqli_fetch_array($cate_sql))
+			       {
+			         $bo_type = $cate_row['b_type'];
+			         echo "<option value=$bo_type>" . $cate_row['c_name'] . "</option>";
+			       }
+			       ?>
           </select>
         </td>
         <td align=left width=588px nowrap>
