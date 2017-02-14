@@ -32,9 +32,10 @@ $(document).ready(function() {
   var name = joinfrm.c_name.value;
   var name_flag = false;
   if(check_kor.test(name)){
-   $("#info_name1").css("color","red");
-   name_flag = true;
- }else{$("#info_name1").css("color","blue");}
+   $("#info_name1").css("color","red");}
+   else{$("#info_name1").css("color","blue");
+name_flag = true;
+}
 
   if(name.length<2 || name.length >8){
    $("#info_name2").css("color","red");

@@ -43,7 +43,7 @@ if(isset($searchColumn) && isset($searchText)) {
     $emptyData = '<tr><td class="textCenter" colspan="5">글이 존재하지 않습니다.</td></tr>';
   } else {
 
-  $onePage = 3; // 한 페이지에 보여줄 게시글의 수.
+  $onePage = 10; // 한 페이지에 보여줄 게시글의 수.
   $allPage = ceil($allPost / $onePage); //전체 페이지의 수 ceil로 올림
 
   if($page < 1 || $page > $allPage) {
