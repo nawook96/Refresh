@@ -72,6 +72,7 @@
 		</tbody>
 	</table>
 	<div class="btnSet">
+		<input type="checkbox" name="chk_info" value="onlyAdmin">주인만 보기&nbsp;&nbsp;&nbsp;&nbsp;
 		<input type="submit" value="코멘트 작성">
 	</div>
 </form>
@@ -152,7 +153,8 @@
 				comment += '		</tbody>';
 				comment += '	</table>';
 				comment += '	<div class="btnSet">';
-				comment += '		<input type="submit" value="확인">';
+				comment += '<input type="checkbox" name="chk_info" value="onlyAdmin">주인만 보기&nbsp;&nbsp;&nbsp;&nbsp;';
+				comment += '		               <input type="submit" value="확인">';
 				comment += '	</div>';
 				comment += '</div>';
 

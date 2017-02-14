@@ -141,12 +141,14 @@
 }
 #commentView{
   margin-top:50px;
+  height: auto;
 }
 
 #commentView ul {
   list-style: none;
   margin: 0;
   padding:0;
+  height: auto;
 }
 #commentView .oneDepth {
   margin: 10px 0;
@@ -174,7 +176,10 @@
 .btnSet{
   float:right;
 }
-
+.writeComment
+{
+  height: auto;
+}
 
 /* 글삭제 */
 #boardDelete table {
