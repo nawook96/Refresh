@@ -25,9 +25,9 @@ if(isset($_GET['searchText'])) {
 }
 
 if(isset($searchColumn) && isset($searchText)) {
-  $searchSql = ' where ' . $searchColumn . ' like "%' . $searchText . '%"';
+  $searchSql = ' where isAdmin = 0 and ' . $searchColumn . ' like "%' . $searchText . '%"';
 } else {
-  $searchSql = '';
+  $searchSql = ' where isAdmin = 0';
 }
 
 /* 검색 끝 */
