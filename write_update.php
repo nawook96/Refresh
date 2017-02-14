@@ -71,6 +71,8 @@
 				$sql2 = 'insert into board_image (i_no, b_no, i_path, i_name, i_size) values (null, "'.$num['b_no'].'", "'.$iPath.'", "'.$iName.'", "'.$iSize.'")';
 				$r = move_uploaded_file($tmp_file, $iPath);
 				$result2= $db->query($sql2);
+				$sql = 'update board_db set b_hit = b_hit + 1 where b_no = ' . $bno;
+				$sql3 = 'UPDATE board_category SET c_num = c_num + 1 WHERE b_type = ' . $bType;
 			}
 		}
 

@@ -34,6 +34,8 @@ if(isset($bno)) {
 
 //쿼리가 정상 실행 됐다면,
 if($result && $result2) {
+	$sql3 = 'UPDATE board_category SET c_num = c_num - 1 WHERE b_type = ' . $bType;
+	$result3 = $db->query($sql3);
 	$msg = '정상적으로 글이 삭제되었습니다.';
 	$replaceURL = './';
 } else {
