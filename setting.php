@@ -1,6 +1,8 @@
 <?php
 include('adminlock.php');
 
+$state = $_GET['state'];
+
 /* 페이징 시작 */
   //페이지 get 변수가 있다면 받아오고, 없다면 1페이지를 보여준다.
   if(isset($_GET['page'])) {
@@ -134,16 +136,34 @@ $paging .= '<li class="page page_next"><a href="./setting.php?page=' . $nextPage
 <?php include("frame/navbar.php");?>
 <div class = "allcontent">
   <?php include("frame/aside_admin.php");?>
-  <?php include("admin/member_manage.php");?>
-  <div class="searchBox">
-    <form action="./setting.php" method="get">
-      <select name="searchColumn">
-        <option <?php echo $searchColumn=='m_id'?'selected="selected"':null?> value="m_id">ID</option>
-      </select>
-      <input type="text" name="searchText" value="<?php echo isset($searchText)?$searchText:null?>">
-      <button type="submit">검색</button>
-    </form>
-  </div>
+
+  <?php
+  if($state == 0)
+  {
+    include("admin/member_manage.php");
+    ?>
+    <div class="searchBox">
+      <form action="./setting.php" method="get">
+        <select name="searchColumn">
+          <option <?php echo $searchColumn=='m_id'?'selected="selected"':null?> value="m_id">ID</option>
+        </select>
+        <input type="text" name="searchText" value="<?php echo isset($searchText)?$searchText:null?>">
+        <button type="submit">검색</button>
+      </form>
+    </div>
+    <?php
+  }
+  else if($state == 1)
+  {
+    include("admin/board_management.php");
+  }
+  else {
+    include("admin/board_view_manage.php");
+  }
+
+  ?>
+
+
 </div>
 <?php include("frame/footer.php");?>
 </body>
