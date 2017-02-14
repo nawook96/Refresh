@@ -22,7 +22,7 @@ echo "<div id=$boardList>";
  </tr>
  ";
 
- while($row = mysqli_fetch_array($list))
+ while($row = $result->fetch_assoc())
  {
    $id = $row['m_id'];
    echo "<tr>";
