@@ -1,6 +1,9 @@
 <?php
 	require_once("dbconfig.php");
+	require_once("memberlock.php");
 	$bno = $_GET['bno'];
+
+
 
 		if(!empty($bno) && empty($_COOKIE['board_db_' . $bno])) {
 
