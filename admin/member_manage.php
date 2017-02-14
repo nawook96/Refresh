@@ -1,7 +1,6 @@
 <?php
 include('./dbconfig.php');
 
-
 $modify = 'admin/member_modify.php';
 $delete = 'admin/member_delete.php';
 $list = mysqli_query($db, "SELECT * FROM member WHERE isAdmin = 0");
