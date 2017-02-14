@@ -23,7 +23,7 @@
 
 	if(empty($w) || $w === 'w') { //$w 변수가 비어있거나 w인 경우
 		$msg = '작성';
-		$sql = 'insert into comment_free values(null, ' .$bno . ', ' . $coNo . ', "' . $coContent . '", "' . $coId . '")';
+		$sql = 'insert into comment_free values(null, ' .$bno . ', ' . $coNo . ', "' . $coId . '", "' . $coContent . '")';
 
 
 		if(empty($w)) { //$w 변수가 비어있다면,
@@ -54,21 +54,21 @@
 
 	} else if($w === 'd') { //삭제
 		$msg = '삭제';
-		$sql = 'select count(*) as cnt from comment_free where co_no = ' . $coNo;
-
-		$result = $db->query($sql);
-		$row = $result->fetch_assoc();
+		// $sql = 'select count(*) as cnt from comment_free where co_no = ' . $coNo;
+		//
+		// $result = $db->query($sql);
+		// $row = $result->fetch_assoc();
 
 // 		if(empty($row['cnt'])) { //맞는 결과가 없을 경우 종료
-// ?>
-// 			<script>
+//
+ // 			script>
 // 				alert('비밀번호가 맞지 않습니다.');
 // 				history.back();
-// 			</script>
+// 			/script> -->
 // <?php
 // 			exit;
 // 		}
-		$sql = 'delete from comment_free where and co_no = ' . $coNo;
+		$sql = 'delete from comment_free where co_no = ' . $coNo;
 
 	} else {
 ?>
