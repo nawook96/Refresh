@@ -191,7 +191,7 @@ $paging .= '<li class="page page_next"><a href="./index.php?page=' . $nextPage .
 	        ?>
 	      <tr>
 	        <td class="no"><?php echo $virtual_bno?> <?php $virtual_bno--; ?></td>
-	        <td class="title"><a href="./view.php?bno=<?php echo $row['b_no']?>"><?php echo $row['b_title']?></a></td>
+	        <td class="title"><a href="./view.php?bno=<?php echo $row['b_no']?>"><?php echo htmlspecialchars($row['b_title']);?></a></td>
 	        <td class="date"><?php echo $row['b_date']?></td>
 	        <td class="hit"><?php echo $row['b_hit']?></td>
 	      </tr>

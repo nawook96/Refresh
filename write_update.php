@@ -1,6 +1,8 @@
 <?php
 	require_once("dbconfig.php");
 
+
+	출처: http://jhrun.tistory.com/174 [JHRunning]
 	//$_POST['bno']이 있을 때만 $bno 선언
 		if(isset($_POST['bno'])) {
 			$bno = $_POST['bno'];
