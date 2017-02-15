@@ -20,10 +20,10 @@
 			if(!empty($_FILES['fileName']['name']))
 		{
 			$iName = $_FILES['fileName']['name'];
-			$iPath = "images/upload/".$_FILES['fileName']['name'];
+			$iPath = "images/upload/".date('YmdHis').$_FILES['fileName']['name'];
 			$iSize = $_FILES['fileName']['size'];
 			$tmp_file = $_FILES['fileName']['tmp_name'];
-			$tPath = "images/upload/thumbnails/".$_FILES['fileName']['name'];
+			$tPath = "images/upload/thumbnails/".date('YmdHis').$_FILES['fileName']['name'];
 			}
 		}
 
@@ -49,10 +49,20 @@
 							unlink($rr['i_path']);
 							$sql2 = 'update board_image set i_path="'.$iPath.'", i_name="'.$iName.'", i_size="'.$iSize.'" where b_no = "'.$bno.'"';
 							$r = move_uploaded_file($tmp_file, $iPath);
+							if(getThumb($iPath, $tPath, 100, 100))
+							{
+								$sql = 'update board_db set b_src="'.$tPath.'" where b_no = "'.$bno.'"';
+								$re = $db->query($sql);
+							}
 						}
 						else {
 							$sql2 = 'insert into board_image (i_no, b_no, i_path, i_name, i_size) values (null, "'.$bno.'", "'.$iPath.'", "'.$iName.'", "'.$iSize.'")';
 							$r = move_uploaded_file($tmp_file, $iPath);
+							if(getThumb($iPath, $tPath, 100, 100))
+							{
+								$sql = 'update board_db set b_src="'.$tPath.'" where b_no = "'.$bno.'"';
+								$re = $db->query($sql);
+							}
 						}
 							$result2= $db->query($sql2);
 				}
@@ -79,16 +89,23 @@
 				$sql = 'select * from board_image where b_no='.$bno;
 				$result4 = $db->query($sql);
 				$num = mysqli_num_rows($result4);
-				echo "check";
+
 				if($num != 0)
 				{
-					echo "내가 뭘";
 					$bb = $result4->fetch_assoc();
 					$path = $bb['i_path'];
 					unlink($path);
+					$sql = 'select* from board_db where b_no'.$bno;
+					$re = $db->query($sql);
+					$b = $re->fetch_assoc();
+					$src = $b['b_src'];
+					unlink($src);
 
 				$sql = 'delete from board_image where b_no='.$bno;
 				$result3 = $db->query($sql);
+
+					$sql = 'update board_db set b_src= null where b_no = "'.$bno.'"';
+					$re = $db->query($sql);
 			}
 		}
 }
@@ -114,7 +131,8 @@
 =======
 				if(getThumb($iPath, $tPath, 100, 100))
 				{
-					echo "성공";
+					$sql = 'update board_db set b_src="'.$tPath.'" where b_no = "'.$bno.'"';
+					$re = $db->query($sql);
 				}
 >>>>>>> origin/master
 			}
@@ -210,7 +228,6 @@
 		case 'image/gif' :	imagegif($t['img'], $n_path);	break;
 		case 'image/png' :	imagepng($t['img'], $n_path);	break;
 	}
-
 	// 원본 이미지 리소스 종료
 	imagedestroy($o['img']);
 	// 썸네일 이미지 리소스 종료

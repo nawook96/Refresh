@@ -10,23 +10,28 @@
 
 //글 삭제
 if(isset($bno)) {
-	$sql = 'delete from board_db where b_no = ' . $bno;
-	$result = $db->query($sql);
-	$sql = 'delete from comment_free where b_no='.$bno;
-	$result2=$db->query($sql);
+
 	$sql = 'select * from board_image where b_no='.$bno;
 	$result4 = $db->query($sql);
 	$num = mysqli_num_rows($result4);
 	if($num != 0)
 	{
-		echo "내가 뭘";
 		$bb = $result4->fetch_assoc();
 		$iPath = $bb['i_path'];
 		unlink($iPath);
 
-	$sql = 'delete from board_image where b_no='.$bno;
-	$result3 = $db->query($sql);
+		$sql = 'delete from board_image where b_no='.$bno;
+		$result3 = $db->query($sql);
+		$sql = 'select* from board_db where b_no'.$bno;
+		$re = $db->query($sql);
+		$b = $re->fetch_assoc();
+		$src = $b['b_src'];
+		unlink($src);
 	}
+	$sql = 'delete from board_db where b_no = ' . $bno;
+	$result = $db->query($sql);
+	$sql = 'delete from comment_free where b_no='.$bno;
+	$result2=$db->query($sql);
 	//틀리다면 메시지 출력 후 이전화면으로
 }
 
