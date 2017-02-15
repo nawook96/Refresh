@@ -65,7 +65,7 @@
 				<span id="boardDate">작성일: <?php echo $row['b_date']?></span>
 				<span id="boardHit">조회: <?php echo $row['b_hit']?></span>
 			</div>
-			<div id="boardContent"><?php echo $row['b_content']?></div>
+			<div id="boardContent"><?php echo htmlspecialchars($row['b_content']);?></div>
 
 			<div id="boardImage">
 				<?php
