@@ -29,7 +29,7 @@ echo "<a href=$add>" . "카테고리 추가" . "</a>";
    echo "<td>" . $row['c_num'] . "</td>";
    if($id != 1)
    {
-      echo "<td><a href=$delete?id=$id>" . "삭제" . "</a></td>";
+      echo "<td><a href=$delete?id=$id><i class=".'fa fa-trash'."aria-hidden=".'true'."></a></td>";
    }
    else
    {

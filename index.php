@@ -166,6 +166,7 @@ $paging .= '<li class="page page_next"><a href="./index.php?page=' . $nextPage .
 	    <thead>
 	      <tr>
 	        <th scope="col" class="no">번호</th>
+					<th scope="col" class="image">사진</th>
 	        <th scope="col" class="title">제목</th>
 	        <th scope="col" class="date">작성일</th>
 	        <th scope="col" class="hit">조회</th>
@@ -191,6 +192,16 @@ $paging .= '<li class="page page_next"><a href="./index.php?page=' . $nextPage .
 	        ?>
 	      <tr>
 	        <td class="no"><?php echo $virtual_bno?> <?php $virtual_bno--; ?></td>
+					<td class="image">
+					<?php
+					if($row['b_src']!=NULL)
+					{ ?>
+						<img src="<?php echo $row['b_src']?>">
+						<?php
+					}
+					?>
+
+					</td>
 	        <td class="title"><a href="./view.php?bno=<?php echo $row['b_no']?>"><?php echo htmlspecialchars($row['b_title']);?></a></td>
 	        <td class="date"><?php echo $row['b_date']?></td>
 	        <td class="hit"><?php echo $row['b_hit']?></td>
