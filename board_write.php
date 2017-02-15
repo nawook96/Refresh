@@ -82,12 +82,13 @@
       <td  align=left id="status">
 				<input type="hidden" name=MAX_FILE_SIZE value="<?=$fsize?>">
 				  파일 용량 제한 : 3MB
+					<input type="checkbox" name="check" value="noImage">이미지 첨부 삭제&nbsp;&nbsp;&nbsp;&nbsp;
 			</td>
     </tr>
     <tr>
       <td align=left>
         <input  type="file" name="fileName" accept="image/gif, image/jpeg, image/png">
-					<div  class = "boardImage">
+					<div  id = "boardImage">
 				<?php
 				if(isset($iPath))
 				{?>
@@ -108,7 +109,7 @@
             &nbsp;&nbsp;
             <INPUT type=button value="되돌아가기"
             onclick="history.back(-1)"> <!--버튼이 클릭되었을때 발생하는 이벤트로 자바스크립트를 실행함. 이렇게 하면 바로 이전페이지로 감-->
-        </td>
+				</td>
     </tr>
           <!-- </TABLE> -->
   <!-- </td> -->

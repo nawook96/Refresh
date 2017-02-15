@@ -5,7 +5,7 @@
 /* 글목록 */
 
 #boardList table {
-  width:590px;
+  width:580px;
   border-collapse: collapse;
     font-size: 15px;
 }
@@ -114,7 +114,7 @@
   margin: 10px 0;
 }
 
-.boardImage img
+#boardImage img
 {
   width: 100%;
   height: auto;

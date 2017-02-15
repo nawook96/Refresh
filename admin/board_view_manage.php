@@ -1,5 +1,5 @@
 <?php
-	require_once("../dbconfig.php");
+	require_once("./dbconfig.php");
 	if(!isset($_SESSION))
 	{
 	  session_start();
@@ -155,10 +155,9 @@ $paging .= '<li class="page page_next"><a href="./index.php?page=' . $nextPage .
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-<?php include("../frame/header.php");?>
-<?php include("../frame/navbar.php");?>
+
 <div class = "allcontent">
-  <?php include("../frame/aside_admin.php");?>
+
   <article  class="boardArticle">
   <h1><?=$cate_name['c_name'];?></h1>
   	<div id="boardList">
@@ -236,7 +235,7 @@ $paging .= '<li class="page page_next"><a href="./index.php?page=' . $nextPage .
   </div>
   </article>
 </div>
-<?php include("../frame/footer.php");?>
+
 </body>
 
 </html>

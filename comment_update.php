@@ -32,7 +32,11 @@
 
 	if(empty($w) || $w === 'w') { //$w 변수가 비어있거나 w인 경우
 		$msg = '작성';
+<<<<<<< HEAD
 		$sql = 'insert into comment_free values(null, ' .$bno . ', ' . $coNo . ', "' . $coId . '", "' . $coContent . '" , "' . $coLock . ')';
+=======
+		$sql = 'insert into comment_free values(null, ' .$bno . ', ' . $coNo . ', "' . $coId . '", "' . $coContent . '", 0)';
+>>>>>>> origin/master
 
 
 		if(empty($w)) { //$w 변수가 비어있다면,
