@@ -12,6 +12,15 @@
 
 	//공통 변수
 	$bno = $_POST['bno'];
+	$ischecked = $_POST['chk_info'];
+	if($ischecked == 'onlyAdmin'){
+		$coLock = 1;
+	}
+	else {
+		$coLock = 0;
+	}
+	echo $ischecked;
+	echo $coLock;
 	//$coPassword = $_POST['coPassword'];
 
 	if($w !== 'd') {//$w 변수가 d일 경우 $coContent와 $coId가 필요 없음.
@@ -23,7 +32,7 @@
 
 	if(empty($w) || $w === 'w') { //$w 변수가 비어있거나 w인 경우
 		$msg = '작성';
-		$sql = 'insert into comment_free values(null, ' .$bno . ', ' . $coNo . ', "' . $coId . '", "' . $coContent . '")';
+		$sql = 'insert into comment_free values(null, ' .$bno . ', ' . $coNo . ', "' . $coId . '", "' . $coContent . '" , "' . $coLock . ')';
 
 
 		if(empty($w)) { //$w 변수가 비어있다면,

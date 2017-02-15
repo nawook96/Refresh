@@ -3,6 +3,9 @@
 	require_once("memberlock.php");
 	$bno = $_GET['bno'];
 
+	$sql = mysqli_query($db, "SELECT m_id FROM member WHERE m_id='$id' AND isAdmin = 1");
+	$adrow = mysqli_fetch_array($sql);
+	$isad = $adrow['m_id'];
 
 
 		if(!empty($bno) && empty($_COOKIE['board_db_' . $bno])) {
@@ -77,8 +80,15 @@
 				?>
 		</div>
 		<div class="btnSet">
+			<?php
+			if(isset($isad))
+			{
+			?>
 			<a href="./board_write.php?bno=<?php echo $bno?>">수정</a>
 			<a href="./delete.php?bno=<?php echo $bno?>">삭제</a>
+			<?php
+}
+			 ?>
 			<a href="./">목록</a>
 		</div>
 		<div id="boardComment">

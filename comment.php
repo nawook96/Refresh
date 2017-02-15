@@ -2,18 +2,40 @@
 	$sql = 'select * from comment_free where co_no=co_order and b_no=' . $bno;
 	$result = $db->query($sql);
 	$logined_user = $_SESSION['logined_user'];
+	$sql2 = mysqli_query($db, "SELECT m_id FROM member WHERE m_id='$logined_user' AND isAdmin = 1");
+	$result2 = mysqli_fetch_array($sql);
+	$isad = $result2['isAdmin'];
 ?>
 <div id="commentView">
 	<form action="comment_update.php" method="post">
 		<input type="hidden" name="bno" value="<?php echo $bno?>">
 		<?php
 			while($row = $result->fetch_assoc()) {
+				$com_id = $row['co_id'];
 		?>
 		<ul class="oneDepth">
 			<li>
+				<?php
+				if($row['co_lock'] == 0)
+				{
+					if($logined_user != $com_id && $isad == 0){
+			?>
+			<div id="co_<?php echo $row['co_no']?>" class="commentSet">
+				<div class="commentInfo">
+					<div class="commentId">작성자: <span class="coId"><?=$com_id?></span></div>
+					<div class="commentBtn">
+						<a href="#" class="comt write">댓글</a>
+					</div>
+				</div>
+				<div class="commentContent"><?php echo $row['co_content']?></div>
+			</div>
+			<?php
+		}
+		else{
+				?>
 				<div id="co_<?php echo $row['co_no']?>" class="commentSet">
 					<div class="commentInfo">
-						<div class="commentId">작성자: <span class="coId"><?php echo $row['co_id']?></span></div>
+						<div class="commentId">작성자: <span class="coId"><?=$com_id?></span></div>
 						<div class="commentBtn">
 							<a href="#" class="comt write">댓글</a>
 							<a href="#" class="comt modify">수정</a>
@@ -23,23 +45,105 @@
 					<div class="commentContent"><?php echo $row['co_content']?></div>
 				</div>
 				<?php
+			}
+		}
+			else {
+				if($logined_user != $com_id && $isad == 0){
+			?>
+			<div id="co_<?php echo $row['co_no']?>" class="commentSet">
+				<div class="commentInfo">
+					<div class="commentId">작성자: <span class="coId"><?=$com_id?></span></div>
+				</div>
+				<div class="commentContent">권한이 없습니다.</div>
+			</div>
+			<?php
+		}
+		else{
+			?>
+			<div id="co_<?php echo $row['co_no']?>" class="commentSet">
+				<div class="commentInfo">
+					<div class="commentId">작성자: <span class="coId"><?=$com_id?></span></div>
+					<div class="commentBtn">
+						<a href="#" class="comt write">댓글</a>
+						<a href="#" class="comt modify">수정</a>
+						<a href="#" class="comt delete">삭제</a>
+					</div>
+				</div>
+				<div class="commentContent"><?php echo $row['co_content']?></div>
+			</div>
+			<?php
+		}
+		}
+		?>
+				<?php
 					$sql2 = 'select * from comment_free where co_no!=co_order and co_order=' . $row['co_no'];
 					$result2 = $db->query($sql2);
 
 					while($row2 = $result2->fetch_assoc()) {
+						$com_id2 = $row2['co_id'];
 				?>
 				<ul class="twoDepth">
 					<li>
-						<div id="co_<?php echo $row2['co_no']?>" class="commentSet">
+						<?php
+						if($row['co_lock'] == 0)
+						{
+							if($logined_user != $com_id2 && $isad == 0){
+					?>
+					<div id="co_<?php echo $row['co_no']?>" class="commentSet">
+						<div class="commentInfo">
+							<div class="commentId">작성자: <span class="coId"><?=$com_id2?></span></div>
+							<div class="commentBtn">
+								<a href="#" class="comt write">댓글</a>
+							</div>
+						</div>
+						<div class="commentContent"><?php echo $row2['co_content']?></div>
+					</div>
+					<?php
+				}
+				else{
+						?>
+						<div id="co_<?php echo $row['co_no']?>" class="commentSet">
 							<div class="commentInfo">
-								<div class="commentId">작성자:  <span class="coId"><?php echo $row2['co_id']?></span></div>
+								<div class="commentId">작성자: <span class="coId"><?=$com_id2?></span></div>
 								<div class="commentBtn">
+									<a href="#" class="comt write">댓글</a>
 									<a href="#" class="comt modify">수정</a>
 									<a href="#" class="comt delete">삭제</a>
 								</div>
 							</div>
-							<div class="commentContent"><?php echo $row2['co_content'] ?></div>
+							<div class="commentContent"><?php echo $row2['co_content']?></div>
 						</div>
+						<?php
+					}
+				}
+					else {
+						if($logined_user != $com_id && $isad == 0){
+					?>
+					<div id="co_<?php echo $row['co_no']?>" class="commentSet">
+						<div class="commentInfo">
+							<div class="commentId">작성자: <span class="coId"><?=$com_id2?></span></div>
+						</div>
+						<div class="commentContent">권한이 없습니다.</div>
+					</div>
+					<?php
+				}
+				else{
+					?>
+					<div id="co_<?php echo $row['co_no']?>" class="commentSet">
+						<div class="commentInfo">
+							<div class="commentId">작성자: <span class="coId"><?=$com_id2?></span></div>
+							<div class="commentBtn">
+								<a href="#" class="comt write">댓글</a>
+								<a href="#" class="comt modify">수정</a>
+								<a href="#" class="comt delete">삭제</a>
+							</div>
+						</div>
+						<div class="commentContent"><?php echo $row2['co_content']?></div>
+					</div>
+					<?php
+				}
+				}
+				?>
 					</li>
 				</ul>
 				<?php
@@ -173,5 +277,7 @@
 				$('.comt').show();
 			return false;
 		});
+
+
 	});
 </script>
