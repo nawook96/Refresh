@@ -7,6 +7,7 @@ $delete = 'admin/board_delete.php';
 $list = mysqli_query($db, "SELECT * FROM board_category");
 $num = 1;
 
+echo "<article class=boardArticle>";
 echo "<div id=boardList>";
 echo "<a href=$add>" . "카테고리 추가" . "</a>";
  echo "<table border = '1'>
@@ -16,6 +17,7 @@ echo "<a href=$add>" . "카테고리 추가" . "</a>";
  <th>게시글 갯수</th>
  <th></th>
  </tr>
+ </article>
  ";
 
  while($row = mysqli_fetch_array($list))

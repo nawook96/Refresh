@@ -7,7 +7,7 @@ $boardList = 'boardList';
 $pa = 'paging';
 $list = mysqli_query($db, "SELECT * FROM member WHERE isAdmin = 0");
 $num = 1;
-
+echo "<article class=boardArticle>";
 echo "<div id=$boardList>";
  echo "<table border = '1'>
  <tr>
@@ -20,7 +20,8 @@ echo "<div id=$boardList>";
  <th></th>
  <th></th>
  </tr>
- ";
+ </article>";
+
 
  while($row = $result->fetch_assoc())
  {
