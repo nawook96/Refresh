@@ -2,9 +2,9 @@
 	$sql = 'select * from comment_free where co_no=co_order and b_no=' . $bno;
 	$result = $db->query($sql);
 	$logined_user = $_SESSION['logined_user'];
-	$sql2 = mysqli_query($db, "SELECT m_id FROM member WHERE m_id='$logined_user' AND isAdmin = 1");
-	$result2 = mysqli_fetch_array($sql2);
-	$isad = $result2['m_id'];
+	$sql3 = mysqli_query($db, "SELECT m_id FROM member WHERE m_id='$logined_user' AND isAdmin = 1");
+	$result3 = mysqli_fetch_array($sql3);
+	$isad = $result3['m_id'];
 ?>
 <div id="commentView">
 	<form action="comment_update.php" method="post">
@@ -78,7 +78,6 @@
 				<?php
 					$sql2 = 'select * from comment_free where co_no!=co_order and co_order=' . $row['co_no'];
 					$result2 = $db->query($sql2);
-
 					while($row2 = $result2->fetch_assoc()) {
 						$com_id2 = $row2['co_id'];
 				?>
@@ -207,7 +206,6 @@
 			co_no = co_no.substr(3, co_no.length);
 
 			var addOption = '<input type="hidden" name="co_no" value="' + co_no + '">';
-
 			//변수 초기화
 			var comment = '';
 			var coId = '';
@@ -219,6 +217,7 @@
 				//ID 영역 출력
 				coId = '<?=$logined_user?>';
 
+				var addcoID = '<input type="hidden" name="coId" value="' + coId + '">';
 			} else if($(this).hasClass('modify')) {
 				//댓글 수정
 				action = 'u';
@@ -237,6 +236,7 @@
 				comment += '<div class="writeComment">';
 				comment += '	<input type="hidden" name="w" value="' + action + '">';
 				comment += addOption;
+				comment += addcoID;
 				comment += '	<table>';
 				comment += '		<tbody>';
 				if(action !== 'd') {
