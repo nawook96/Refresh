@@ -5,7 +5,15 @@ $ad_row = mysqli_fetch_array($ad_sql);
 
 <aside>
   <div id="profileBox">
-    <img id="profileImage" src = "images/profile_image.png" alt="Blog Profile image">
+    <span id="profileImage">
+      <?php
+      if(isset($path))
+      {?>
+        <img src="<?php echo $ad_row['ad_src']?>">
+        <?php
+      }
+      ?>
+    </span>
     <p> <span class="title"> Name </span> <span class="title_content" name="name" > <?=$ad_row['ad_name']?> </span> </p>
     <p> <span class="title"> Intro </span> <span class="title_content" name="intro" > <?=$ad_row['ad_intro']?> </span> </p>
     <a href="profileset.php"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
