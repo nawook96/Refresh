@@ -89,7 +89,7 @@ $id = $_SESSION['logined_user'];
 			<?php
 }
 			 ?>
-			<a href="./">목록</a>
+			<a href="javascript:history.back()">목록</a>
 		</div>
 		<div id="boardComment">
 			<?php include('comment.php'); ?>

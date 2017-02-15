@@ -65,7 +65,7 @@ $cate_name = mysqli_fetch_array($cate_list);
 				$paging .= '</ul>';
 		} else {
 
-		$onePage = 3; // 한 페이지에 보여줄 게시글의 수.
+		$onePage = 5; // 한 페이지에 보여줄 게시글의 수.
 		$allPage = ceil($allPost / $onePage); //전체 페이지의 수 ceil로 올림
 
 		if($page < 1 || $page > $allPage) {
@@ -197,6 +197,10 @@ $paging .= '<li class="page page_next"><a href="./index.php?page=' . $nextPage .
 					if($row['b_src']!=NULL)
 					{ ?>
 						<img src="<?php echo $row['b_src']?>">
+						<?php
+					}
+					else {?>
+						<i class="fa fa-file-image-o" aria-hidden="true"></i>
 						<?php
 					}
 					?>

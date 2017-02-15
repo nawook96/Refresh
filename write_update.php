@@ -114,7 +114,7 @@
 		//글 등록.
 	 else {
 
-	$sql = 'insert into board_db (b_type, b_no, b_title, b_content, b_date, b_hit, b_src) values('. $bType . ', null, "' . $bTitle . '", "' . $bContent . '", "' . $date . '", 0, null)';
+		 	$sql = 'insert into board_db (b_type, b_no, b_title, b_content, b_date, b_hit, b_src) values('. $bType . ', null, "' . $bTitle . '", "' . $bContent . '", "' . $date . '", 0, null)';
 			$msgState = '등록';
 			$result = $db->query($sql);
 			if(!empty($_FILES['fileName']['name']))
@@ -125,12 +125,21 @@
 				$sql2 = 'insert into board_image (i_no, b_no, i_path, i_name, i_size) values (null, "'.$num['b_no'].'", "'.$iPath.'", "'.$iName.'", "'.$iSize.'")';
 				$r = move_uploaded_file($tmp_file, $iPath);
 				$result2= $db->query($sql2);
-				$sql = 'update board_db set b_hit = b_hit + 1 where b_no = ' . $bno;
+
 				$sql3 = 'UPDATE board_category SET c_num = c_num + 1 WHERE b_type = ' . $bType;
 				if(getThumb($iPath, $tPath, 100, 100))
 				{
-					$sql = 'update board_db set b_src="'.$tPath.'" where b_no = "'.$bno.'"';
+					$sql = 'update board_db set b_src="'.$tPath.'" where b_no = "'.$num['b_no'].'"';
+					echo $sql;
 					$re = $db->query($sql);
+					if($re)
+					{
+						echo "성겅";
+					}
+					else {
+						echo "밍";
+					}
+
 				}
 			}
 		}
@@ -156,7 +165,7 @@
 	?>
 			<script>
 				alert("<?php echo $msg?>");
-				// history.back();
+				 //history.back();
 			</script>
 	<?php
 			exit;
@@ -182,7 +191,7 @@
 		case 'image/png' :	$o['img'] = imagecreatefrompng($o_path);	break;
 
 		// mime 타입이 해당되지 않으면 return false
-		default :		return array('bool' => false);						break;
+		// default :		return array('bool' => false);						break;
 	}
 
 	// 원본 이미지 크기

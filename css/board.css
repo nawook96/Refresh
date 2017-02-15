@@ -8,7 +8,7 @@
 #boardList table {
   width:580px;
   border-collapse: collapse;
-    font-size: 15px;
+    font-size: 14px;
 }
 .searchBox{
   text-align: center;
@@ -69,6 +69,13 @@
    color: #ddd;
  }
 #boardList .searchBox{
+  text-align: center;
+}
+#boardList img{
+  display: block;
+}
+#boardList .image{
+  padding:0;
   text-align: center;
 }
 
