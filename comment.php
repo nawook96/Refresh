@@ -3,8 +3,8 @@
 	$result = $db->query($sql);
 	$logined_user = $_SESSION['logined_user'];
 	$sql2 = mysqli_query($db, "SELECT m_id FROM member WHERE m_id='$logined_user' AND isAdmin = 1");
-	$result2 = mysqli_fetch_array($sql);
-	$isad = $result2['isAdmin'];
+	$result2 = mysqli_fetch_array($sql2);
+	$isad = $result2['m_id'];
 ?>
 <div id="commentView">
 	<form action="comment_update.php" method="post">
@@ -18,7 +18,7 @@
 				<?php
 				if($row['co_lock'] == 0)
 				{
-					if($logined_user != $com_id && $isad == 0){
+					if($logined_user != $com_id && !isset($isad)){
 			?>
 			<div id="co_<?php echo $row['co_no']?>" class="commentSet">
 				<div class="commentInfo">
@@ -48,7 +48,7 @@
 			}
 		}
 			else {
-				if($logined_user != $com_id && $isad == 0){
+				if($logined_user != $com_id && !isset($isad)){
 			?>
 			<div id="co_<?php echo $row['co_no']?>" class="commentSet">
 				<div class="commentInfo">
@@ -87,7 +87,7 @@
 						<?php
 						if($row['co_lock'] == 0)
 						{
-							if($logined_user != $com_id2 && $isad == 0){
+							if($logined_user != $com_id2 && !isset($isad)){
 					?>
 					<div id="co_<?php echo $row['co_no']?>" class="commentSet">
 						<div class="commentInfo">
@@ -117,7 +117,7 @@
 					}
 				}
 					else {
-						if($logined_user != $com_id && $isad == 0){
+						if($logined_user != $com_id && !isset($isad)){
 					?>
 					<div id="co_<?php echo $row['co_no']?>" class="commentSet">
 						<div class="commentInfo">

@@ -3,10 +3,10 @@
 	require_once("memberlock.php");
 	$bno = $_GET['bno'];
 
+$id = $_SESSION['logined_user'];
 	$sql = mysqli_query($db, "SELECT m_id FROM member WHERE m_id='$id' AND isAdmin = 1");
 	$adrow = mysqli_fetch_array($sql);
 	$isad = $adrow['m_id'];
-
 
 		if(!empty($bno) && empty($_COOKIE['board_db_' . $bno])) {
 
