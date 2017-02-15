@@ -95,7 +95,7 @@
 					$bb = $result4->fetch_assoc();
 					$path = $bb['i_path'];
 					unlink($path);
-					$sql = 'select* from board_db where b_no'.$bno;
+					$sql = 'select* from board_db where b_no='.$bno;
 					$re = $db->query($sql);
 					$b = $re->fetch_assoc();
 					$src = $b['b_src'];
