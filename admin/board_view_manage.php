@@ -139,6 +139,7 @@ $paging .= '<li class="page page_next"><a href="./index.php?page=' . $nextPage .
 		$result = $db->query($sql);
 		$result2 = $db->query($sql2);
 
+	$cate_sql = mysqli_query($db,"SELECT * FROM board_category ORDER BY b_type");
 }
 
 
@@ -157,7 +158,16 @@ $paging .= '<li class="page page_next"><a href="./index.php?page=' . $nextPage .
 <body>
 
 <div class = "allcontent">
-
+	<select style="width:500px" id="catgry">
+		<option value=0>전체 보기</option>;
+		<?php
+		 while($cate_row = mysqli_fetch_array($cate_sql))
+		 {
+			 $bo_type = $cate_row['b_type'];
+			 echo "<option value=$bo_type>" . $cate_row['c_name'] . "</option>";
+		 }
+		 ?>
+	</select>
   <article  class="boardArticle">
   <h1><?=$cate_name['c_name'];?></h1>
   	<div id="boardList">
@@ -168,8 +178,6 @@ $paging .= '<li class="page page_next"><a href="./index.php?page=' . $nextPage .
 	        <th scope="col" class="title">제목</th>
 	        <th scope="col" class="date">작성일</th>
 	        <th scope="col" class="hit">조회</th>
-					<th scope="col" class="up">수정</th>
-					<th scope="col" class="del">삭제</th>
 	      </tr>
 	    </thead>
 	    <tbody>
@@ -195,8 +203,6 @@ $paging .= '<li class="page page_next"><a href="./index.php?page=' . $nextPage .
 	        <td class="title"><a href="./view.php?bno=<?php echo $row['b_no']?>"><?php echo $row['b_title']?></a></td>
 	        <td class="date"><?php echo $row['b_date']?></td>
 	        <td class="hit"><?php echo $row['b_hit']?></td>
-					<td class="up"><a href="./board_write.php?bno=<?php echo $row['b_no']?>"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
-					<td class="del"><a href="./delete.php?bno=<?php echo $row['b_no']?>"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
 	      </tr>
 	        <?php
 	          }
@@ -215,12 +221,12 @@ $paging .= '<li class="page page_next"><a href="./index.php?page=' . $nextPage .
 			$btnSet = 'btnSet';
 			$boardwrite = './board_write.php';
 
-	    // if(isset($login_session))
-	    // {
-	    // echo "<div class=$btnSet>
-		  //     <a href= $boardwrite class='btnWrite btn'>글쓰기</a>
-		  //   </div>";
-	    // }
+	    if(isset($login_session))
+	    {
+	    echo "<div class=$btnSet>
+		      <a href= $boardwrite class='btnWrite btn'>글쓰기</a>
+		    </div>";
+	    }
 	  }
 	?>
 		<div class="paging">
@@ -243,3 +249,13 @@ $paging .= '<li class="page page_next"><a href="./index.php?page=' . $nextPage .
 </body>
 
 </html>
+
+<script>
+	$(document).ready(function () {
+
+		$("#catgry").change(function(){
+
+	  });
+
+	});
+</script>
