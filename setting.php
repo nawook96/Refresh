@@ -1,7 +1,13 @@
 <?php
 include('adminlock.php');
 
-$state = $_GET['state'];
+if(isset($_GET['state']))
+{
+  $state = $_GET['state'];
+}
+else {
+  $state = 0;
+}
 
 /* 페이징 시작 */
   //페이지 get 변수가 있다면 받아오고, 없다면 1페이지를 보여준다.
