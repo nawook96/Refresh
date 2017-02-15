@@ -19,8 +19,6 @@
 	else {
 		$coLock = 0;
 	}
-	echo $ischecked;
-	echo $coLock;
 	//$coPassword = $_POST['coPassword'];
 
 	if($w !== 'd') {//$w 변수가 d일 경우 $coContent와 $coId가 필요 없음.
@@ -32,11 +30,7 @@
 
 	if(empty($w) || $w === 'w') { //$w 변수가 비어있거나 w인 경우
 		$msg = '작성';
-<<<<<<< HEAD
 		$sql = 'insert into comment_free values(null, ' .$bno . ', ' . $coNo . ', "' . $coId . '", "' . $coContent . '" , "' . $coLock . ')';
-=======
-		$sql = 'insert into comment_free values(null, ' .$bno . ', ' . $coNo . ', "' . $coId . '", "' . $coContent . '", 0)';
->>>>>>> origin/master
 
 
 		if(empty($w)) { //$w 변수가 비어있다면,
