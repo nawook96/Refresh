@@ -217,7 +217,7 @@
 				//댓글 쓰기
 				action = 'w';
 				//ID 영역 출력
-				coId = <?=$logined_user?>;
+				coId = '<?=$logined_user?>';
 
 			} else if($(this).hasClass('modify')) {
 				//댓글 수정

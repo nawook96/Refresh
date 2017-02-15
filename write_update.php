@@ -127,6 +127,7 @@
 				$result2= $db->query($sql2);
 
 				$sql3 = 'UPDATE board_category SET c_num = c_num + 1 WHERE b_type = ' . $bType;
+				$r = $db->query($sql3);
 				if(getThumb($iPath, $tPath, 100, 100))
 				{
 					$sql = 'update board_db set b_src="'.$tPath.'" where b_no = "'.$num['b_no'].'"';
