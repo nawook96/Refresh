@@ -11,7 +11,7 @@ echo $sql;
  if(mysqli_query($db, $sql))
  {
   echo "<script>alert('카테고리 추가 성공');</script>";
-  echo "<script>location.href = '../board_manage.php'</script>";
+  echo "<script>location.href = './setting.php?=state=1'</script>";
  }
  else
  {

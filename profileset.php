@@ -1,5 +1,6 @@
 <?php
 require_once("dbconfig.php");
+require_once("adminlock.php");
 
 $adsql = 'SELECT * FROM admin';
 $adresult = $db->query($adsql);
@@ -23,7 +24,7 @@ $adrow = $adresult->fetch_assoc();
     <div class = "allcontent">
       <?php include("frame/aside_user.php"); ?>
     <article class="boardArticle">
-    <form name="joinfrm" id="joinfrm" action="profile.php"  ENCTYPE="multipart/form-data" method="post">
+    <form name="joinfrm" id="joinfrm" action="profile.php" method="post" ENCTYPE='multipart/form-data'>
   <div class ="wrapper_table">
    <div class="join_body">
     <dl>
@@ -36,7 +37,7 @@ $adrow = $adresult->fetch_assoc();
       <TEXTAREA style = "width:400px"name="ad_intro" cols=90 rows=15><?php echo isset($adrow['ad_intro'])?$adrow['ad_intro']:null?></TEXTAREA>
      </div>
      <div>
-           <input  type="file" name="fileName" accept="image/gif, image/jpeg, image/png">
+         <input  type="file" name="file" accept="image/gif, image/jpeg, image/png">
      </div>
     </dl>
    </div>

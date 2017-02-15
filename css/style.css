@@ -67,7 +67,7 @@ aside{
   display: block;
   margin-left : auto;
   margin-right: auto;
-  width:90px;
+  width:auto;
   height:90px;
 }
 .title{
