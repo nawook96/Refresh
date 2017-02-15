@@ -23,22 +23,19 @@ $adrow = $adresult->fetch_assoc();
     <div class = "allcontent">
       <?php include("frame/aside_user.php"); ?>
     <article class="boardArticle">
-    <form name="joinfrm" id="joinfrm" action="profile.php" method="post">
+    <form name="joinfrm" id="joinfrm" action="profile.php"  ENCTYPE="multipart/form-data" method="post">
   <div class ="wrapper_table">
    <div class="join_body">
     <dl>
      <div>
       <dt><label>Name</label></dt>
-      <dd><input id="ad_name" name="ad_name" type="text" size = "30" maxlength="16" placeholder="이름"></dd>
+      <dd><input id="ad_name" name="ad_name" type="text" size = "30" maxlength="16" placeholder = "<?php echo isset($adrow['ad_name'])?$adrow['ad_name']:"이름"?>"</dd>
      </div>
      <div>
       <dt><label>Intro</label></dt>
       <TEXTAREA style = "width:400px"name="ad_intro" cols=90 rows=15><?php echo isset($adrow['ad_intro'])?$adrow['ad_intro']:null?></TEXTAREA>
      </div>
      <div>
-       <input type="hidden" name=MAX_FILE_SIZE value="<?=$fsize?>">
-         파일 용량 제한 : 3MB
-         <input type="checkbox" name="check" value="noImage">이미지 첨부 삭제&nbsp;&nbsp;&nbsp;&nbsp;
            <input  type="file" name="fileName" accept="image/gif, image/jpeg, image/png">
      </div>
     </dl>

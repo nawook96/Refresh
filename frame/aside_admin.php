@@ -5,11 +5,17 @@ $ad_row = mysqli_fetch_array($ad_sql);
 
 <aside>
   <div id="profileBox">
-    <span id="profileImage">
+    <span>
       <?php
-      if(isset($path))
+      if($ad_row['ad_src']!=null)
       {?>
-        <img src="<?php echo $ad_row['ad_src']?>">
+        <img id = "profileImage" src="<?php echo $ad_row['ad_src']?>">
+        <?php
+      }
+      else
+      {
+        ?>
+        <img id="profileImage" src = "images/profile_image.png" alt="Blog Profile image">
         <?php
       }
       ?>

@@ -67,6 +67,8 @@ aside{
   display: block;
   margin-left : auto;
   margin-right: auto;
+  width:90px;
+  height:90px;
 }
 .title{
   font-weight: bold;
