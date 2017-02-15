@@ -165,7 +165,7 @@
 		case 'image/jpeg' :	$o['img'] = imagecreatefromjpeg($o_path);	break;
 		case 'image/gif' :	$o['img'] = imagecreatefromgif($o_path);		break;
 		case 'image/png' :	$o['img'] = imagecreatefrompng($o_path);	break;
-		case 'image/bmp' :	$o['img'] = imagecreatefrombmp($o_path);	break;
+
 		// mime 타입이 해당되지 않으면 return false
 		default :		return array('bool' => false);						break;
 	}
