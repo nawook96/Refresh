@@ -12,8 +12,7 @@
 
 	//공통 변수
 	$bno = $_POST['bno'];
-	$ischecked = $_POST['chk_info'];
-	if($ischecked == 'onlyAdmin'){
+	if(isset($_POST['chk_info'])){
 		$coLock = 1;
 	}
 	else {

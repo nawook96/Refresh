@@ -185,6 +185,8 @@
 	$(document).ready(function () {
 		var commentSet = '';
 		var action = '';
+
+
 		$('#commentView').delegate('.comt', 'click', function () {
 			//현재 작성 내용을 변수에 넣고, active 클래스 추가.
 			commentSet = $(this).parents('.commentSet').html();
@@ -265,6 +267,8 @@
 				$(this).parents('.commentSet').after(comment);
 			return false;
 		});
+
+
 
 		$('#commentView').delegate(".cancel", "click", function () {
 			if(action == 'w') {
